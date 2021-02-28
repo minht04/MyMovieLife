@@ -1,25 +1,25 @@
-# <ここにアプリ名を入力>
+# My Fashion Style
 
 ## サイト概要
-<...>
+雑誌等から好きなファッションスタイルの画像を投稿し、いいねやコメントをすることができるサイト
 
 ### サイトテーマ
-<...>
+好きなファッションを共有
 
 ### テーマを選んだ理由
-<...>
+自分自身、服に興味があり、自分のコーディネートを投稿するサイトはあるがハードルが高く、気軽に共有できるサイトがあればいいなと思ったため。
 
 ### ターゲットユーザ
-<...>
+服が好きな人
 
 ### 主な利用シーン
-<...>
+いつでも、好きなときに
 
 ## 設計書
-<...>
+<のちに追加>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1UgK-6l38k5T81XjcTIn7CHnGRkB_sBXS5xQWAVhWmks/edit#gid=0>
+https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sLGkk/edit#gid=2076875427
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -29,5 +29,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- ファッション誌　ファッション雑誌ガイド
+https://www.magazine-data.com
