@@ -17,8 +17,8 @@
 映画が好きな人
 
 ### 主な利用シーン
-* 映画を観たあと、誰かに感想を伝えたいとき
-* 観た映画の感想を記録したいとき
+- 映画を観たあと、誰かに感想を伝えたいとき
+- 観た映画の感想を記録したいとき
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sLGkk/edit#gid=2076875427
