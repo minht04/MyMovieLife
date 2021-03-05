@@ -1,9 +1,10 @@
 class Member::MembersController < ApplicationController
   before_action :ensure_correct_member, only: [:update, :edit]
+  before_action :check_guest, only: [:update]
 
 
   def index
-    @member = Member.all
+    @members = Member.page(params[:page]).reverse_order
   end
 
   def show
@@ -12,16 +13,33 @@ class Member::MembersController < ApplicationController
   end
 
   def edit
+    @member = Member.find(params[:id])
   end
 
   def update
+    @member = Member.find(params[:id])
+    @member.update(member_params)
+    redirect_to member_path(@member.id)
   end
 
-  def correct_member
+  def ensure_correct_member
     @member = Member.find(params[:id])
     unless @member.id == current_member.id
       redirect_to member_path(current_member.id)
     end
+  end
+
+  def check_guest
+    @member = Member.find(params[:id])
+    if @member.name == 'ゲスト'
+      redirect_to members_path, alert: 'ゲストユーザーは編集できません。'
+    end
+  end
+
+  private
+
+  def member_params
+    params.require(:member).permit(:name, :profile_image, :introduction)
   end
 
 end

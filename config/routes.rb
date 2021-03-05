@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  namespace :member do
-    get 'members/show'
-  end
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -13,10 +11,17 @@ Rails.application.routes.draw do
     registrations: 'members/registrations'
   }
 
+  devise_scope :member do
+    post 'members/guest_sign_in', to: 'members/sessions#new_guest'
+  end
+
   scope module: :member do
     root to: 'homes#top'
     get 'home/about' => 'homes#about'
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+    end
+    
     resources :members, only: [:show, :edit, :index, :update]
   end
 

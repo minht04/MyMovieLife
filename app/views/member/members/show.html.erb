@@ -1,7 +1,8 @@
 <div class="mypage-container">
   <h3 class="mypage-name"><%= @member.name %></h3>
-  <%= attachment_image_tag @member, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  
+  <%= attachment_image_tag @member, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
+  <%= @member.introduction %>
+
   <% if @member.id == current_member.id %>
   <p><%= link_to "プロフィール編集", edit_member_path(@member) %></p>
 <% end %>

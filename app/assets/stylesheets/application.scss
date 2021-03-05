@@ -16,15 +16,23 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- 
+
+ #notice {
+  color: green;
+ }
+
+ #alert {
+  color: red;
+ }
+
  /*フッターの配置*/
  #wrapper {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 120px; /*footerの高さ*/ 
-  box-sizing: border-box; /*全て含めてmin-height:100vhに*/ 
+  padding-bottom: 120px; /*footerの高さ*/
+  box-sizing: border-box; /*全て含めてmin-height:100vhに*/
  }
-  
+
   footer {
    width: 100%;
    background-color: #EBEBEB;
