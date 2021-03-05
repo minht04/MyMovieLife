@@ -1,0 +1,12 @@
+<h1>なに観た？</h1>
+<%= form_with model: @post, local:true do |f| %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <h4>映画名</h4>
+  <%= f.text_field :movie %>
+  <h4>ひとこと</h4>
+  <%= f.text_field :title %>
+  <h4>もっと</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿する' %>
+<% end %>

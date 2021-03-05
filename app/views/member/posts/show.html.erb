@@ -1,0 +1,11 @@
+<div>
+  <%= attachment_image_tag @post, :image, :fill, 120, 120 %>
+  <p>ユーザーネーム：<%= @post.member.name %></p>
+  <p>映画：<%= @post.movie %></p>
+  <p>ひとこと：<%= @post.title %></p>
+  <p>もっと：<%= @post.body %></p>
+  <% if @post.member == current_member %>
+    <%= link_to "編集", edit_post_path(@post) %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+</div>

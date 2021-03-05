@@ -1,0 +1,23 @@
+<div class="mypage-container">
+  <h3 class="mypage-name"><%= @member.name %></h3>
+  <%= attachment_image_tag @member, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  
+  <% if @member.id == current_member.id %>
+  <p><%= link_to "プロフィール編集", edit_member_path(@member) %></p>
+<% end %>
+</div>
+
+<h3>All Posts</h3>
+<% @posts.each do |post| %>
+<div>
+  <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg" %>
+  <p>映画：
+    <%= link_to post_path(post) do %>
+      <%= post.movie %>
+    <% end %>
+    </p>
+  <p>ひとこと：<%= post.title %></p>
+</div>
+<% end %>
+
+<%= paginate @posts %>

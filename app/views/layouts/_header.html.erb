@@ -6,22 +6,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        
+
     <!--会員がログインしたとき-->
       <% if member_signed_in? %>
         <li class="nav-item">
-          <%= link_to "my page", class: 'nav-link text-grey' %>
+          <%= link_to "my page", member_path(current_member.id), class: 'nav-link text-grey' %>
         </li>
         <li class="nav-item">
-          <%= link_to "posts", class: 'nav-link text-grey' %>
+          <%= link_to "posts", posts_path, class: 'nav-link text-grey' %>
         </li>
         <li class="nav-item">
-          <%= link_to "users", class: 'nav-link text-grey' %>
+          <%= link_to "users", members_path, class: 'nav-link text-grey' %>
         </li>
         <li class="nav-item">
           <%= link_to "log out", destroy_member_session_path, method: :delete, class: 'nav-link text-grey' %>
         </li>
-        
+
     <!--管理者がログインしたとき-->
       <% elsif admin_signed_in? %>
         <li class="nav-item">
@@ -33,7 +33,7 @@
         <li class="nav-item">
           <%= link_to "log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-grey' %>
         </li>
-        
+
     <!--ログイン前-->
       <% else %>
         <li class="nav-item">
@@ -47,9 +47,9 @@
         </li>
         <li class="nav-item">
           <%= link_to "log in", new_member_session_path, class: 'nav-link text-grey' %>
-        </li>  
+        </li>
       <% end %>
-        
+
       </ul>
     </div>
   </div>
