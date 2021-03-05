@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">My Movie Life</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        
+    <!--会員がログインしたとき-->
+      <% if member_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "my page", class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "posts", class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "users", class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "log out", destroy_member_session_path, method: :delete, class: 'nav-link text-grey' %>
+        </li>
+        
+    <!--管理者がログインしたとき-->
+      <% elsif admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "posts", class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "users", class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-grey' %>
+        </li>
+        
+    <!--ログイン前-->
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "home", root_path, class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "about", home_about_path, class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "sign up", new_member_registration_path, class: 'nav-link text-grey' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "log in", new_member_session_path, class: 'nav-link text-grey' %>
+        </li>  
+      <% end %>
+        
+      </ul>
+    </div>
+  </div>
+</nav>

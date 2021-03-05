@@ -9,5 +9,12 @@ Rails.application.routes.draw do
     passwords:     'members/passwords',
     registrations: 'members/registrations'
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  scope module: :member do
+    root to: 'homes#top'
+    get 'home/about' => 'homes#about'
+  end
+  
+  namespace :admin do
+  end
 end
