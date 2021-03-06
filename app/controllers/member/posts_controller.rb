@@ -10,6 +10,7 @@ class Member::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     @post.save
+    
     redirect_to post_path(@post)
   end
 
@@ -38,7 +39,7 @@ class Member::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
-  
+
   def correct_post
     @post = Post.find(params[:id])
     unless @post.member.id == current_member.id

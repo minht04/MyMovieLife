@@ -8,17 +8,26 @@
 <% end %>
 </div>
 
-<h3>All Posts</h3>
-<% @posts.each do |post| %>
-<div>
-  <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg" %>
-  <p>映画：
-    <%= link_to post_path(post) do %>
-      <%= post.movie %>
-    <% end %>
-    </p>
-  <p>ひとこと：<%= post.title %></p>
+
+
+<div class="container">
+  
+    <h3 class="d-inline-flex p-2 bd-highlight">All Posts</h3>
+    <div class="d-flex bd-highlight">
+      <% @posts.each do |post| %>
+      <div class="p-2 flex-fill bd-highlight">
+        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
+        <p>映画：
+          <%= link_to post_path(post) do %>
+            <%= post.movie %>
+          <% end %>
+          </p>
+        <p>ひとこと：<%= post.title %></p>
+      </div>
+      <% end %>
+    </div>
+ 
 </div>
-<% end %>
+
 
 <%= paginate @posts %>

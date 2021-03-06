@@ -5,6 +5,7 @@ class Member::CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.member_id = current_member.id
+    # byebug
     @comment.save
     render :index
   end
