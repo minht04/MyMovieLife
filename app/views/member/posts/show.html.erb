@@ -24,7 +24,7 @@
   <div class="row">
     <ul>
       <li class="comment_create">
-        <h5 class="text-left title">コメント</h3>
+        <h5 class="text-left title">コメント</h5>
       </li>
       <li id="comments_area">
         <%= render partial: 'member/comments/index', locals: { comments: @comments } %>
@@ -34,9 +34,9 @@
   <div class="row">
     <% if member_signed_in? %>
       <div class="comment_create">
-        <h5 class="text-left">コメントする</h3>
+        <h5 class="text-left">コメントする</h5>
         <%= render partial: 'member/comments/form', locals: { comment: @comment, post: @post } %>
       </div>
     <% end %>
-  </div>
+  </d
 </div>
