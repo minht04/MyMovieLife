@@ -1,12 +1,15 @@
-<h1>なに観た？</h1>
-<%= form_with model: @post, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>映画名</h4>
-  <%= f.text_field :movie %>
-  <h4>ひとこと</h4>
-  <%= f.text_field :title %>
-  <h4>もっと</h4>
-  <%= f.text_area :body %>
-  <%= f.submit '投稿する' %>
-<% end %>
+<div class="new-post-container mx-auto mt-5" style="width: 200px;">
+
+  <h2>New post</h2>
+  <%= form_with model: @post, local:true do |f| %>
+    <h5>image</h5>
+    <%= f.attachment_field :image %>
+    <h5>movie's title</h5>
+    <%= f.text_field :movie %>
+    <h5>ひとこと</h5>
+    <%= f.text_field :title %>
+    <h5>more</h5>
+    <%= f.text_area :body %>
+    <%= f.submit 'create' %>
+  <% end %>
+</div>

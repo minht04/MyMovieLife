@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container mx-auto mt-5" style="width: 400px;">
   <div class="row">
     <div class="post-body">
-      <%= attachment_image_tag @post, :image, :fill, 120, 120, fallback: "unnamed.jpg", size:'120x120' %>
+      <%= attachment_image_tag @post, :image, :fill, 250, 250, fallback: "unnamed.jpg", size:'250x250' %>
 
       <div id="favorite-<%= @post.id %>">
         <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
@@ -37,5 +37,5 @@
         <%= render partial: 'member/comments/form', locals: { comment: @comment, post: @post } %>
       </div>
     <% end %>
-  </d
+  </div>
 </div>

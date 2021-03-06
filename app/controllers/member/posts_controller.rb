@@ -10,7 +10,6 @@ class Member::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     @post.save
-    
     redirect_to post_path(@post)
   end
 
