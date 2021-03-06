@@ -1,5 +1,11 @@
 <div class="post-body">
   <%= attachment_image_tag @post, :image, :fill, 120, 120 %>
+
+  <div id="favorite-<%= @post.id %>">
+    <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
+  </div>
+
+
   <p>ユーザーネーム：<%= @post.member.name %></p>
   <p>映画：<%= @post.movie %></p>
   <p>ひとこと：<%= @post.title %></p>
