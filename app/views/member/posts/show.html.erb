@@ -1,31 +1,42 @@
-<div class="post-body">
-  <%= attachment_image_tag @post, :image, :fill, 120, 120 %>
+<div class="container">
+  <div class="row">
+    <div class="post-body">
+      <%= attachment_image_tag @post, :image, :fill, 120, 120 %>
 
-  <div id="favorite-<%= @post.id %>">
-    <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
+      <div id="favorite-<%= @post.id %>">
+        <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
+      </div>
+
+
+      <p>ユーザーネーム：<%= @post.member.name %></p>
+      <p>映画：<%= @post.movie %></p>
+      <p>ひとこと：<%= @post.title %></p>
+      <p>もっと：<%= @post.body %></p>
+      <% if @post.member == current_member %>
+        <%= link_to "編集", edit_post_path(@post) %>
+        <%= link_to "削除", post_path(@post), method: :delete %>
+      <% end %>
+    </div>
   </div>
 
 
-  <p>ユーザーネーム：<%= @post.member.name %></p>
-  <p>映画：<%= @post.movie %></p>
-  <p>ひとこと：<%= @post.title %></p>
-  <p>もっと：<%= @post.body %></p>
-  <% if @post.member == current_member %>
-    <%= link_to "編集", edit_post_path(@post) %>
-    <%= link_to "削除", post_path(@post), method: :delete %>
-  <% end %>
-</div>
-
-
-<!--非同期で-->
-<div class="comment">
-  <p>コメント数：<%= @post.comments.count %></p>
-  <% @post.comments.each do |comment| %>
-    <p><%= attachment_image_tag comment.member, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-    <%= comment.member.name %>
-  <% end %>
-</div>
-
-<div class="new-comment">
-  <%= forwm_with(model:[@post, @comment], local)
+  <!--コメント-->
+  <div class="row">
+    <ul>
+      <li class="comment_create">
+        <h5 class="text-left title">コメント</h3>
+      </li>
+      <li id="comments_area">
+        <%= render partial: 'member/comments/index', locals: { comments: @comments } %>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <% if member_signed_in? %>
+      <div class="comment_create">
+        <h5 class="text-left">コメントする</h3>
+        <%= render partial: 'member/comments/form', locals: { comment: @comment, post: @post } %>
+      </div>
+    <% end %>
+  </div>
 </div>
