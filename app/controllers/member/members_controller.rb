@@ -21,6 +21,16 @@ class Member::MembersController < ApplicationController
     @member.update(member_params)
     redirect_to member_path(@member.id)
   end
+  
+  def follower # follower一覧
+    member = Member.find(params[:id])
+    @members = member.following_member
+  end  
+  
+  def followed # followed一覧
+    member = Member.find(params[:id])
+    @members = member.follower_member
+  end
 
   def ensure_correct_member
     @member = Member.find(params[:id])

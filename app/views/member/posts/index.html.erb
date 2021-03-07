@@ -1,5 +1,5 @@
 <!--ゲストユーザーがログインしたときに表示-->
-<% if flash[:notice] %>
+<% if flash[:notice] && current_member.name = "ゲスト" %>
   <p id="notice">
     <%= flash[:notice] %>
   </p>
@@ -11,8 +11,8 @@
     <div class="col-6 col-md-4 offset-md-10">
       <%= link_to 'new post', new_post_path %></div>
   </div>
-  
-  
+
+
     <div class="row row-cols-4 mt-5">
       <% @posts.each do |post| %>
       <div class="col">

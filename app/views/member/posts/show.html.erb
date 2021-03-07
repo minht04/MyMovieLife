@@ -6,12 +6,11 @@
       <div id="favorite-<%= @post.id %>">
         <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
       </div>
-
-
-      <p>ユーザーネーム：<%= @post.member.name %></p>
-      <p>映画：<%= @post.movie %></p>
+      
+      <p><%= link_to "@#{@post.member.name}", member_path(@post.member.id) %></p>
+      <p>movie's titile：<%= @post.movie %></p>
       <p>ひとこと：<%= @post.title %></p>
-      <p>もっと：<%= @post.body %></p>
+      <p>more：<%= @post.body %></p>
       <% if @post.member == current_member %>
         <%= link_to "編集", edit_post_path(@post) %>
         <%= link_to "削除", post_path(@post), method: :delete %>

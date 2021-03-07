@@ -23,9 +23,16 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
 
-    resources :members, only: [:show, :edit, :index, :update]
+    resources :members, only: [:show, :edit, :index, :update] do
+      resource :relationships, only: [:create, :destroy]
+      member do
+        get 'follows' => 'relationships#follower' #follower一覧
+        get 'followers' => 'relationships#followed' # followed一覧
+      end
+    end
   end
 
   namespace :admin do
   end
+  
 end
