@@ -1,5 +1,5 @@
 <!--ゲストユーザーがログインしたときに表示-->
-<% if flash[:notice] && current_member.name = "ゲスト" %>
+<% if flash[:notice] && current_member.name == "ゲスト" %>
   <p id="notice">
     <%= flash[:notice] %>
   </p>
