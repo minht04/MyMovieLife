@@ -30,6 +30,11 @@ Rails.application.routes.draw do
         get 'followers'  # followed一覧
       end
     end
+    
+    resources :tags do
+      get 'posts', to: 'posts#search'
+    end
+    
   end
 
   namespace :admin do

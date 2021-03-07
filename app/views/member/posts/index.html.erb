@@ -11,6 +11,16 @@
     <div class="col-6 col-md-4 offset-md-10">
       <%= link_to 'new post', new_post_path %></div>
   </div>
+  
+  <h4>タグリスト</h4>
+  <% @tag_list.each do |list| %>
+  <span>
+    <%= link_to tag_posts_path(tag_id: list.id) do %>
+      <%= list.tag_name %>
+    <% end %>
+    <%= "(#{list.posts.count})" %>
+  </span>
+  <% end %>
 
 
     <div class="row row-cols-4 mt-5">

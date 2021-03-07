@@ -16,6 +16,11 @@
         <%= f.text_field :title, class: "form-control title" %>
       </div>
       <div class="form-group">
+        <%= f.label :tag %><br>
+        スペースを入れると複数のタグ付けができます。
+        <%= f.text_field :tag_name, placeholder:"アクション ホラー コメディー", class: "form-control tag_name" %>
+      </div>      
+      <div class="form-group">
         <%= f.label :more %>
         <%= f.text_area :body, class: "form-control more" %>
         <%= f.submit 'create' %>

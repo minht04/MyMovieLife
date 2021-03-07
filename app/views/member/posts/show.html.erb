@@ -6,8 +6,17 @@
       <div id="favorite-<%= @post.id %>">
         <%= render partial: "member/favorites/favorite-btn", locals: { post: @post } %>
       </div>
-      
+
       <p><%= link_to "@#{@post.member.name}", member_path(@post.member.id) %></p>
+
+      <% @post_tags.each do |tag| %>
+      <span>
+        <%= link_to tag_posts_path(tag_id: tag.id) do %>
+          <%= tag.tag_name %>
+        <% end %>
+      </span>
+      <% end %>
+
       <p>movie's titile：<%= @post.movie %></p>
       <p>ひとこと：<%= @post.title %></p>
       <p>more：<%= @post.body %></p>
