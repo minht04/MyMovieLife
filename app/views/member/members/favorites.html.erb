@@ -1,21 +1,24 @@
-<% if @favorite_posts.count > 0 %>
-  <div class="container">
-    <div class="row no-gutters">
-      <h3 class="col-12 col-sm col-md-8 mt-5">Favorite's posts</h3>
-    </div>
-    <div class="row row-cols-4 mt-5">
-    <% @favorite_posts.each do |post| %>
-    <div class="col">
-      <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
-      <p><%= link_to post_path(post) do %>
-          <%= post.movie %>
-        <% end %>
-        </p>
-      <p><%= post.title %></p>
-    </div>
-    <% end %>
-    </div>
+
+
+
+<div class="container">
+  <div class="row no-gutters">
+    <h3 class="col-12 col-sm col-md-8 mt-5">Favorite's posts</h3>
   </div>
-<% else %>
-  <div class="mx-auto mt-5" style="width: 80%;">no post</div>
-<% end %>
+    <% if @favorite_posts.count > 0 %>
+      <div class="row row-cols-4 mt-5">
+      <% @favorite_posts.each do |post| %>
+      <div class="col">
+        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
+        <p><%= link_to post_path(post) do %>
+            <%= post.movie %>
+          <% end %>
+          </p>
+        <p><%= post.title %></p>
+      </div>
+      <% end %>
+      </div>
+    <% else %>
+      <div class="mx-auto" >no post</div>
+  <% end %>
+</div>
