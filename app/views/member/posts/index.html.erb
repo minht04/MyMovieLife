@@ -11,30 +11,19 @@
     <div class="col-6 col-md-4 offset-md-10">
       <%= link_to 'new post', new_post_path %></div>
   </div>
-  
-  <h4>タグリスト</h4>
+
+  <h4>Tag list</h4>
   <% @tag_list.each do |list| %>
   <span>
     <%= link_to tag_posts_path(tag_id: list.id) do %>
-      <%= list.tag_name %>
+      <%= "##{list.tag_name}" %>
     <% end %>
     <%= "(#{list.posts.count})" %>
   </span>
   <% end %>
 
+  <%= render 'index', posts: @posts %>
 
-    <div class="row row-cols-4 mt-5">
-      <% @posts.each do |post| %>
-      <div class="col">
-        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
-        <p><%= link_to post_path(post) do %>
-            <%= post.movie %>
-          <% end %>
-          </p>
-        <p><%= post.title %></p>
-      </div>
-      <% end %>
-    </div>
 </div>
 
 <%= paginate @posts %>

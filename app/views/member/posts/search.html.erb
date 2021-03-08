@@ -1,24 +1,19 @@
-
-
+<div class="container">
+  <div class="col-12 col-sm col-md-8 mt-3"></div>
   <% @tag_list.each do |list| %>
-  <span>
-    <%= link_to tag_posts_path(tag_id: list.id) do %>
-      <%= list.tag_name %>
-    <% end %>
-    <%= "(#{list.posts.count})" %>
-  </span>
+    <span>
+      <%= link_to tag_posts_path(tag_id: list.id) do %>
+        <%= "##{list.tag_name}" %>
+      <% end %>
+      <%= "(#{list.posts.count})" %>
+    </span>
   <% end %>
-  <br>
- <strong><%= @tag.tag_name %>の投稿一覧</strong> 
- 
- 
-      <% @posts.each do |post| %>
-      <div>
-        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
-        <p><%= link_to post_path(post) do %>
-            <%= post.movie %>
-          <% end %>
-          </p>
-        <p><%= post.title %></p>
-      </div>
-      <% end %> 
+
+  <div class="row no-gutters">
+    <h3 class="col-12 col-sm col-md-8 mt-2"><%= "##{@tag.tag_name}" %>'s posts</h3>
+  </div>
+
+  <%= render 'index', posts: @posts %>
+
+</div>
+

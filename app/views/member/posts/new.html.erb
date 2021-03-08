@@ -2,30 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2>New post</h2>
-    <%= form_with model: @post, local:true do |f| %>
-      <div class="form-group">
-        <%= f.label :image %>
-        <%= f.attachment_field :image, class: "form-control-file image" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :movie %>
-        <%= f.text_field :movie, class: "form-control movie" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :ひとこと %>
-        <%= f.text_field :title, class: "form-control title" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :tag %><br>
-        スペースを入れると複数のタグ付けができます。
-        <%= f.text_field :tag_name, placeholder:"アクション ホラー コメディー", class: "form-control tag_name" %>
-      </div>      
-      <div class="form-group">
-        <%= f.label :more %>
-        <%= f.text_area :body, class: "form-control more" %>
-        <%= f.submit 'create' %>
-      </div>
-      <% end %>
+    <%= render 'form', post: @post %> 
     </div>
   </div>
 </div>
