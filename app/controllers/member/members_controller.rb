@@ -10,7 +10,14 @@ class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts.page(params[:page]).reverse_order
+    @favorite_posts = @member.favorite_posts    #お気に入り一覧で追加
   end
+  
+  def favorites
+    @member = Member.find(params[:id])
+    @posts = @member.posts.page(params[:page]).reverse_order
+    @favorite_posts = @member.favorite_posts    #お気に入り一覧で追加
+  end    
 
   def edit
     @member = Member.find(params[:id])
@@ -21,12 +28,12 @@ class Member::MembersController < ApplicationController
     @member.update(member_params)
     redirect_to member_path(@member.id)
   end
-  
+
   def follows # follower一覧
     member = Member.find(params[:id])
     @members = member.following_member
-  end  
-  
+  end
+
   def followers # followed一覧
     member = Member.find(params[:id])
     @members = member.follower_member

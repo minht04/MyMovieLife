@@ -21,23 +21,26 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+
     end
 
     resources :members, only: [:show, :edit, :index, :update] do
+
       resource :relationships, only: [:create, :destroy]
       member do
         get 'follows'  #follower一覧
         get 'followers'  # followed一覧
+        get 'favorites'
       end
     end
-    
+
     resources :tags do
       get 'posts', to: 'posts#search'
     end
-    
+
   end
 
   namespace :admin do
   end
-  
+
 end
