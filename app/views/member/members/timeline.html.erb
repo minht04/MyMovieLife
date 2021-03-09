@@ -1,0 +1,10 @@
+  <% @posts.each do |post| %>
+  <div class="col">
+    <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
+    <p><%= link_to post_path(post) do %>
+        <%= post.movie %>
+      <% end %>
+      </p>
+    <p><%= post.title %></p>
+  </div>
+  <% end %>

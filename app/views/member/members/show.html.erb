@@ -1,6 +1,6 @@
 <div class="mypage-container mx-auto mt-5" style="width: 200px;">
   <h2 class="mypage-name"><%= @member.name %></h2>
-  <%= attachment_image_tag @member, :profile_image, :fill, 250, 250, format: 'jpeg', fallback: "no_image.jpg", size:'250x250' %><br>
+  <%= attachment_image_tag @member, :profile_image, :fill, 250, 250, fallback: "no_image.jpg", size:'250x250', class:'rounded-circle' %><br>
   <%= @member.introduction %>
 
   <% if @member.id == current_member.id %>
@@ -25,6 +25,7 @@
     <% end %>
   </p>
   <%= link_to 'favorites', favorites_member_path %>
+  <%= link_to 'timeline', timeline_member_path %>
 </div>
 
 

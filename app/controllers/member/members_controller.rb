@@ -10,14 +10,13 @@ class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts.page(params[:page]).reverse_order
-    @favorite_posts = @member.favorite_posts    #お気に入り一覧で追加
   end
-  
+
   def favorites
     @member = Member.find(params[:id])
     @posts = @member.posts.page(params[:page]).reverse_order
     @favorite_posts = @member.favorite_posts    #お気に入り一覧で追加
-  end    
+  end
 
   def edit
     @member = Member.find(params[:id])
@@ -51,6 +50,12 @@ class Member::MembersController < ApplicationController
     if @member.name == 'ゲスト'
       redirect_to members_path, alert: 'ゲストユーザーは編集できません。'
     end
+  end
+
+  def timeline
+    @member = Member.find(params[:id])
+    @members = @member.following_member
+    @posts = Post.where(member_id: @members)
   end
 
   private

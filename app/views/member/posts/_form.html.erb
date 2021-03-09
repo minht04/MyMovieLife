@@ -1,7 +1,8 @@
 <%= form_with model: post, local:true do |f| %>
   <div class="form-group">
     <%= f.label :image %>
-    <%= f.attachment_field :image, class: "form-control-file image" %>
+    <%= f.attachment_field :image, class: "form-control-file image" %><br>
+    <%= attachment_image_tag @post, :image, fallback: "unnamed.jpg", id: "img_prev", style: "height: 250px; width: 250px;" %>
   </div>
   <div class="form-group">
     <%= f.label :movie %>
@@ -14,7 +15,7 @@
   <div class="form-group">
     <%= f.label :tag %><br>
     「,」を入れると複数のタグ付けができます。
-    <%= f.text_field :tag_name, placeholder:"アクション, ホラー,コメディー", class: "form-control tag_name" %>
+    <%= f.text_field :tag_name, value: @tag_list, placeholder:"アクション, ホラー,コメディー", class: "form-control tag_name" %>
   </div>
   <div class="form-group">
     <%= f.label :more %>
@@ -22,3 +23,20 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $(document).on("turbolinks:load", function(){
+    function readURL(input) {
+      if(input.files && input.files[0]){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#post_image").change(function(){
+      readURL(this);
+    });
+  });
+</script>
