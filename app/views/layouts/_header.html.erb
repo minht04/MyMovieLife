@@ -28,10 +28,10 @@
     <!--管理者がログインしたとき-->
       <% elsif admin_signed_in? %>
         <li class="nav-item">
-          <%= link_to "posts", class: 'nav-link text-grey' %>
+          <%= link_to "posts", admin_posts_path, class: 'nav-link text-grey' %>
         </li>
         <li class="nav-item">
-          <%= link_to "users", class: 'nav-link text-grey' %>
+          <%= link_to "users", admin_members_path, class: 'nav-link text-grey' %>
         </li>
         <li class="nav-item">
           <%= link_to "log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-grey' %>

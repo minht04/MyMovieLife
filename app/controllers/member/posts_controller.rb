@@ -46,7 +46,7 @@ class Member::PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def search
+  def search       #タグごとに投稿一覧表示
     @tag_list = Tag.joins(:posts)
     @tag = Tag.find(params[:tag_id]) #クリックしたタグを取得
     @posts = @tag.posts.all           #クリックしたタグの投稿を全て表示
@@ -61,7 +61,7 @@ class Member::PostsController < ApplicationController
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:movie, :title, :body, :image)
   end

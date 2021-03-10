@@ -1,0 +1,42 @@
+<div class="container m-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-1"></div>
+    <h4 class="my-4"><span style="background-color:#EFEFEF">　<%= @member.name %>さんのユーザー詳細　</span></h4>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-1"></div>
+    <%= form_for @member, :url => {action:"update"} do |f| %>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <td>ユーザーID</td>
+            <td><%= @member.id %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>名前</td>
+            <td><%= @member.name %></td>
+          </tr>
+            <tr>
+            <td>メールアドレス</td>
+            <td><%= @member.email %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><%= f.label :is_deleted, '会員ステータス' %></td>
+            <td><%= f.radio_button :is_deleted, :false %>有効
+                <%= f.radio_button :is_deleted, :true %>削除
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <% end %>
+</div>

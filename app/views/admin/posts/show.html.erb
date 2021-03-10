@@ -1,0 +1,53 @@
+<div class="container mt-5" style="width: 800px;">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="post-body">
+        <%= attachment_image_tag @post, :image, :fill, 250, 250, fallback: "unnamed.jpg", size:'250x250' %>
+
+        <p><%= link_to "@#{@post.member.name}", member_path(@post.member.id) %></p>
+
+        <% @post_tags.each do |tag| %>
+        <p><%= "##{tag.tag_name}" %></p>
+        <% end %>
+
+        <p>映画名：<%= @post.movie %></p>
+        <p><%= @post.title %></p>
+        <p><%= @post.body %></p>
+        <%= link_to "Delete", admin_post_path(@post), method: :delete %>
+      </div>
+    </div>
+
+    <!--コメント-->
+    <div class="col-sm-6">
+      <ul>
+        <li class="comment_create comment-list-none">
+          <h5 class="text-left title">コメント</h5>
+        </li>
+        <li id="comments_area">
+
+          <%= @comments.count %>件コメント
+
+          <% @comments.each do |comment| %>
+              <div class="comment-container">
+                <div class="comment-box">
+                  <div class="comment-avatar">
+                    <%= attachment_image_tag comment.member, :profile_image, fallback: "no_image.jpg", class:"comment-image", size: "40x40", class:'rounded-circle' %>
+                  </div>
+                  <div class="comment-text">
+                    <p><%= link_to "@#{comment.member.name}", member_path(comment.member.id) %></p>
+                    <div class="comment-entry">
+                      <%= comment.body %>
+                      <%= link_to "削除", admin_post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" %>
+                    </div>
+                    <span class="comment-date pull-right">
+                      <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

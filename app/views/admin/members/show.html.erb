@@ -1,0 +1,42 @@
+<div class="mypage-container mx-auto mt-5" style="width: 20%;">
+  <h2 class="mypage-name"><%= @member.name %></h2>
+  <%= attachment_image_tag @member, :profile_image, :fill, 250, 250, fallback: "no_image.jpg", size:'250x250', class:'rounded-circle' %><br>
+</div>
+  <table class="table table-borderless">
+    <tr>
+      <td style="width: 30%;"></td>
+      <td style="width: 20%;">ユーザーID</td>
+      <td style="width: 40%;"><%= @member.id %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>名前</td>
+      <td><%= @member.name %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>メールアドレス</td>
+      <td><%= @member.email %></td>
+    </tr>
+  </table>
+  <div class="mx-auto" style="width: 30%;"><%= link_to '編集する', edit_admin_member_path(@member) %></div>
+
+<div class="container mx-auto" style="width: 80%;">
+
+    <h3 class="d-inline-flex p-2 bd-highlight"><%= @member.name %>'s posts</h3>
+    <div class="row row-cols-4">
+      <% @posts.each do |post| %>
+      <div class="cols">
+        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
+        <p><%= link_to admin_post_path(post) do %>
+            <%= post.movie %>
+          <% end %>
+          </p>
+      </div>
+      <% end %>
+    </div>
+
+</div>
+
+
+<%= paginate @posts %>
