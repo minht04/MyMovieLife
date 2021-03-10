@@ -27,6 +27,19 @@ class Member::MembersController < ApplicationController
     @member.update(member_params)
     redirect_to member_path(@member.id)
   end
+  
+  def exit  # アカウント削除画面に遷移
+    @member = current_member
+  end
+  
+  def hide   # アカウント削除
+    @member = Member.find(params[:id])
+    @member.update(is_deleted: true)
+    reset_session
+    flash[:error] = "アカウントを削除しました。"
+    redirect_to root_path
+  end
+  
 
   def follows # follower一覧
     member = Member.find(params[:id])

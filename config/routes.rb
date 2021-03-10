@@ -30,7 +30,10 @@ Rails.application.routes.draw do
         get 'followers'  # followed一覧
         get 'favorites'
         get 'timeline' # フォローしている人の投稿一覧（タイムライン）
+        get 'exit'     # アカウント削除確認画面
+        put 'hide'     # アカウント削除
       end
+      
     end
 
     resources :tags do

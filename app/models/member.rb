@@ -4,10 +4,17 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, length: {maximum: 20}, uniqueness: true
+  validates :introduction, length: { maximum: 50 }
+
   def self.guest
     find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
     end
+  end
+
+  def active_for_authentication?  # 削除済みユーザーをログインさせない
+    super && (self.is_deleted == false)
   end
 
   has_many :posts, dependent: :destroy
@@ -15,7 +22,7 @@ class Member < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   attachment :profile_image
-  
+
   # フォローしている
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   # フォローされている
@@ -24,7 +31,7 @@ class Member < ApplicationRecord
   has_many :follower_member, through: :followed, source: :follower
   #フォローされている人
   has_many :following_member, through: :follower, source: :followed
-  
+
   # フォローする
   def follow(member_id)
     follower.create(followed_id: member_id)

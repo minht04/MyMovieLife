@@ -17,12 +17,15 @@
         <%= f.text_area :introduction, class: "form-control introduction" %>
       </div>
       <div class="form-group">
-        <%= f.submit 'Update Profile', class: 'btn btn-secondary' %>
+        <%= f.submit 'Update Profile', class: 'btn btn-secondary' %><br>
+        <%= link_to 'アカウント削除', exit_member_path(@member) %>
       </div>
     <% end %>
     </div>
   </div>
 </div>
+
+
 
 <script>
   $(document).on("turbolinks:load", function(){
