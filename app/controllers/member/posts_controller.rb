@@ -17,7 +17,7 @@ class Member::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).reverse_order
-    @tag_list = Tag.joins(:posts)
+    @tag_list = Tag.joins(:posts).group(:id)
   end
 
   def show
@@ -47,7 +47,7 @@ class Member::PostsController < ApplicationController
   end
 
   def search       #タグごとに投稿一覧表示
-    @tag_list = Tag.joins(:posts)
+    @tag_list = Tag.joins(:posts).group(:id)
     @tag = Tag.find(params[:tag_id]) #クリックしたタグを取得
     @posts = @tag.posts.all           #クリックしたタグの投稿を全て表示
   end
