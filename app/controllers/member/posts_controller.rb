@@ -61,6 +61,7 @@ class Member::PostsController < ApplicationController
   end
 
   private
+  
   def post_params
     params.require(:post).permit(:movie, :title, :body, :image)
   end

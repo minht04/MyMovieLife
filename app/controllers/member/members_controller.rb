@@ -53,9 +53,11 @@ class Member::MembersController < ApplicationController
   end
 
   def timeline
-    @member = Member.find(params[:id])
+    @member = current_member
     @members = @member.following_member
-    @posts = Post.where(member_id: @members)
+    follows_ids = @member.following_member.pluck(:id)  #フォローしている人のIDだけを取り出す
+    follows_ids.push(@member.id)                       #フォローしている人のID配列に自分のIDも追加
+    @posts = Post.where(member_id: follows_ids).order(id: "desc")
   end
 
   private
