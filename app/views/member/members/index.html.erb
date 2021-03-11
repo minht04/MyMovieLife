@@ -1,12 +1,23 @@
 <div class="container">
   <div class="row no-gutters">
     <h3 class="col-12 col-sm col-md-8 mt-5">All users</h3>
-  </div>  
+  </div>
 <!--ゲストユーザーが編集画面に遷移したときのアラート-->
 <% if flash[:alert] %>
   <p id="alert">
     <%= flash[:alert] %>
   </p>
+<% end %>
+
+<% if @content != nil %>
+  Posts search for '<%=@content%>'
+<% end %>
+<!--ユーザー検索-->
+<% if member_signed_in? %>
+  <%= form_tag(members_path, method: :get) do %>
+    <%= text_field_tag 'content', @content %>
+    <%= submit_tag '検索' %>
+  <% end %>
 <% end %>
 
   <div class="row row-cols-4 mt-5">

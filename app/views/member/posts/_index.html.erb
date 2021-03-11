@@ -1,11 +1,11 @@
-<div class="row row-cols-4 mt-5">
+<div class="d-lg-flex d-md-flex my-box-light flex-wrap">
   <% posts.each do |post| %>
-  <div class="col">
+  <div class="my-box col-sm-3">
     <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
     <p><%= link_to post_path(post) do %>
         <%= post.movie %>
       <% end %>
-      </p>
+    </p>
     <p><%= post.title %></p>
   </div>
   <% end %>

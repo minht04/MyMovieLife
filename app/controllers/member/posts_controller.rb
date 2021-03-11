@@ -17,7 +17,13 @@ class Member::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).reverse_order
+    # 検索
+    if params[:content] != nil
+      @content = params[:content]
+      @posts = Post.where("movie like '%" + params[:content] + "%' or body like '%" + params[:content] + "%'").page(params[:page]).reverse_order
+    end
     @tag_list = Tag.joins(:posts).group(:id)
+    @member = current_member.id
   end
 
   def show

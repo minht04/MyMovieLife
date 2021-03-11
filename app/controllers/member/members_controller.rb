@@ -5,6 +5,11 @@ class Member::MembersController < ApplicationController
 
   def index
     @members = Member.page(params[:page]).reverse_order
+    # 検索
+    if params[:content] != nil
+      @content = params[:content]
+      @members = Member.where("name like '%" + params[:content] + "%'").page(params[:page]).reverse_order
+    end    
   end
 
   def show

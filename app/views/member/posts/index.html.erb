@@ -6,12 +6,21 @@
 <% end %>
 
 <div class="container">
-  <div class="row no-gutters">
-    <h3 class="col-12 col-sm col-md-8 mt-5">All posts</h3>
-    <div class="col-6 col-md-4 offset-md-10">
+    <h3 class="mt-5">All posts</h3>
+    <div class="text-right">
       <%= link_to 'new post', new_post_path %>
     </div>
-  </div>
+    <div class="row no-gutters"></div>
+    <% if @content != nil %>
+      Posts search for '<%=@content%>'
+    <% end %>
+<!--投稿検索-->
+<% if member_signed_in? %>
+  <%= form_tag(posts_path, method: :get) do %>
+    <%= text_field_tag 'content', @content %>
+    <%= submit_tag '検索' %>
+  <% end %>
+<% end %>
 
   <h4>Tag list</h4>
   <% @tag_list.each do |list| %>

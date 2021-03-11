@@ -33,7 +33,7 @@ Rails.application.routes.draw do
         get 'exit'     # アカウント削除確認画面
         put 'hide'     # アカウント削除
       end
-      
+
     end
 
     resources :tags do
