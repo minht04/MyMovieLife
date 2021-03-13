@@ -29,6 +29,7 @@ $(document).ready(function () {
     childrenElementType : 'div',
     // ナビゲーションの矢印の表示
     arrows : true,
+    accessibility: true,
     autoplay : true,
     autoPlayDuration : 3000,
     keyboardOnAlways : true,
