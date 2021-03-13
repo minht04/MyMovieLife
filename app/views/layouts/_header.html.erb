@@ -40,7 +40,7 @@
     <!--ログイン前-->
       <% else %>
         <li class="nav-item">
-          <%= link_to "home", root_path, class: 'nav-link text-grey' %>
+          <%= link_to "home", root_path, class: 'nav-link text-grey','data-turbolinks':false %>
         </li>
         <li class="nav-item">
           <%= link_to "about", home_about_path, class: 'nav-link text-grey' %>

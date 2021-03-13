@@ -19,6 +19,33 @@
 
 /* global $*/
 $(document).ready(function () {
+var mySwiper = new Swiper ('.swiper-container',
+	{
+    speed:1000,
+		direction: 'horizontal',
+		navigation:
+		{
+		  nextEl: '.swiper-button-next',
+		  prevEl: '.swiper-button-prev',
+		},
+		pagination:
+		{
+			el: '.swiper-pagination',
+			dynamicBullets: true,
+		},
+		zoom: true,
+		keyboard:
+		{
+			enabled: true,
+			onlyInViewport: false,
+		},
+    autoplay:
+    {
+      delay: 2000,
+    },
+    loop: true,
+	});
+/*
   $("#theTarget").skippr({
     // スライドショーの変化
     transition : 'slide',
@@ -36,4 +63,5 @@ $(document).ready(function () {
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか
     hidePrevious : false
   });
+*/
 });
