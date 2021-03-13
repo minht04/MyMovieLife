@@ -16,3 +16,22 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+  $("#theTarget").skippr({
+    // スライドショーの変化
+    transition : 'slide',
+    speed : 1000,
+    // easingの種類
+    easing : 'easeOutQuart',
+    navType : 'block',
+    childrenElementType : 'div',
+    // ナビゲーションの矢印の表示
+    arrows : true,
+    autoplay : true,
+    autoPlayDuration : 3000,
+    keyboardOnAlways : true,
+    // 一枚目のスライド表示時に戻る矢印を表示するかどうか
+    hidePrevious : false
+  });
+});
