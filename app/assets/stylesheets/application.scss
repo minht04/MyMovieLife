@@ -46,11 +46,27 @@
  #theTarget {
   z-index: 0;
  }
+
+ .about-visual {
+  height: 500px;
+  background-image: image-url("about1");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+ }
+
+ .about-visual-content {
+  width: 40%; 
+  height: 500px; 
+  padding-top: 105px;
+  padding-left: 50px;
+}
+
  /*フッターの配置*/
  #wrapper {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 120px; /*footerの高さ*/
+  padding-bottom: 30px; /*footerの高さ*/
   box-sizing: border-box; /*全て含めてmin-height:100vhに*/
  }
 
