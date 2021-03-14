@@ -53,17 +53,16 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50%;
+  margin-top: 40px;
 }
 .about-visual-text {
   padding-top: 105px;
   padding-left: 50px;
 }
 
-.about-content {
-  height: 300px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.about-image, .about-text {
+  width: 380px;
+  margin-top: 20px;
 }
 
  /*フッターの配置*/
