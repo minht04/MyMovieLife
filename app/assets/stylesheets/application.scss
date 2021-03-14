@@ -37,7 +37,15 @@
  }
 
 
+ header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+ }
 
+ #theTarget {
+  z-index: 0;
+ }
  /*フッターの配置*/
  #wrapper {
   min-height: 100vh;
@@ -46,13 +54,13 @@
   box-sizing: border-box; /*全て含めてmin-height:100vhに*/
  }
 
-  footer {
-   width: 100%;
-   background-color: #EBEBEB;
-   padding: 30px 0;
-   position: absolute; /*絶対位置*/
-   bottom: 0;
-  }
+ footer {
+  width: 100%;
+  background-color: #EBEBEB;
+  padding: 30px 0;
+  position: absolute; /*絶対位置*/
+  bottom: 0;
+ }
 
  .comment-list-none,#comments_area{
   list-style:none;
