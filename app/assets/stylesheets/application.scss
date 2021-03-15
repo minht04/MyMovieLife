@@ -50,7 +50,7 @@
 .social  {
   text-align: center;
   font-size: 25px;
-  padding-top: 300px;
+  padding-top: 250px;
 }
 .social i {
   display: inline-block;
@@ -103,6 +103,15 @@
   padding: 30px 0;
   position: absolute; /*絶対位置*/
   bottom: 0;
+ }
+
+
+ .signup-form,.signup-image,.signin-form,.signin-image {
+  padding-top: 40px;
+ }
+
+ .signup-form a,.signin-form a {
+   color: #C0CEDB;
  }
 
  .comment-list-none,#comments_area{

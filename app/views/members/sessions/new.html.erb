@@ -1,35 +1,48 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="signin-form">
+        <h3>Log in</h3>
 
-<!--削除済みユーザーがログインしようとしたときのアラート-->
-<% if flash[:alert] %>
-  <p id="alert">
-    <%= flash[:alert] %>
-  </p>
-<% end %>
+        <!--削除済みユーザーがログインしようとしたときのアラート-->
+        <% if flash[:alert] %>
+          <p id="alert">
+            <%= flash[:alert] %>
+          </p>
+        <% end %>
 
-<%= form_with model: @member, url: member_session_path, local:true do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <%= form_with model: @member, url: member_session_path, local:true do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+
+        <%= link_to 'Guest login（For viewing）', members_guest_sign_in_path, method: :post %>
+        <br>
+        <a href="/members/sign_up">Sign up</a>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="col-7">
+      <div class="signin-image">
+      <%= image_tag 'signin.jpg', style:"width: 100%;height: 300px;"%>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= link_to 'ゲストログイン（閲覧用）', members_guest_sign_in_path, method: :post %>
-<br>
-<%= render "members/shared/links" %>
+</div>
