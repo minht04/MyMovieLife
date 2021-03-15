@@ -10,13 +10,13 @@
 <% end %>
 
 <% if @content != nil %>
-  Posts search for '<%=@content%>'
+  Users search for '<%=@content%>'
 <% end %>
 <!--ユーザー検索-->
 <% if member_signed_in? %>
   <%= form_tag(members_path, method: :get) do %>
-    <%= text_field_tag 'content', @content %>
-    <%= submit_tag '検索' %>
+    <%= text_field_tag 'content', @content, placeholder:"検索はこちら" %>
+    <%= submit_tag 'search' %>
   <% end %>
 <% end %>
 
