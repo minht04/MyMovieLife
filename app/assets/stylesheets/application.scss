@@ -49,12 +49,23 @@
 
 .social  {
   text-align: center;
-  margin-top: 30px;
   font-size: 25px;
+  padding-top: 300px;
 }
 .social i {
   display: inline-block;
   margin-left: 20px;
+}
+
+.top-visual-content {
+  height: 500px;
+  background-image: image-url("image6.jpg");
+  background-size: cover;
+}
+
+.top-visual-text {
+  padding-top: 105px;
+  padding-left: 50px;
 }
 
 .about-visual-content {
