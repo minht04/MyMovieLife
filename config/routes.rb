@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
 
     resources :members, only: [:show, :edit, :index, :update] do
+      resources :notifications, only: [:index]
       resource :relationships, only: [:create, :destroy]
       member do
         get 'follows'  #follower一覧

@@ -26,7 +26,7 @@
             <%= link_to 'フォロー外す', member_relationships_path(member), method: :delete, class: "btn btn-secondary" %>
           <% else %>
             <%= link_to 'フォローする', member_relationships_path(member), method: :post, class: "btn btn-primary" %>
-          <% end %>          
+          <% end %>
         </td>
         <% end %>
       </tr>
@@ -34,7 +34,7 @@
     </tbody>
   </table>
 <% else %>
-  <div class="mx-auto" style="width: 80%;">no user</div>
+  <div class="mx-auto mt-3" style="width: 80%;">No user</div>
 <% end %>
 
 

@@ -6,6 +6,7 @@ class Member::CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.member_id = current_member.id
     @comment.save
+    @post.create_notification_comment!(current_member, @comment.id)
     render :index
   end
 

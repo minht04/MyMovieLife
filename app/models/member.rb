@@ -22,6 +22,10 @@ class Member < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   attachment :profile_image
+  
+  #通知機能
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy    # 自分からの通知  
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy   # 相手からの通知   
 
   # フォローしている
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -44,4 +48,16 @@ class Member < ApplicationRecord
   def following?(member)
     following_member.include?(member)
   end
+  
+  def create_notification_follow!(current_member)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_member.id, id, 'follow'])
+    if temp.blank?
+      notification = current_member.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+  
 end

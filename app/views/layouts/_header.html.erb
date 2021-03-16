@@ -21,6 +21,12 @@
         <li class="nav-item">
           <%= link_to "users", members_path, class: 'nav-link text-grey' %>
         </li>
+        <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle" style="color: gold;"></i>
+        <% end %>        
+        <li class="nav-item">
+          <%= link_to "notification", member_notifications_path(current_member.id), class: 'nav-link text-grey' %>
+        </li>
         <li class="nav-item">
           <%= link_to "log out", destroy_member_session_path, method: :delete, class: 'nav-link text-grey' %>
         </li>
