@@ -20,7 +20,9 @@
   <% if member_signed_in? %>
     <%= form_tag(posts_path, method: :get) do %>
       <%= text_field_tag 'content', @content, placeholder:"検索はこちら" %>
-      <%= submit_tag 'search' %>
+      <%= button_tag :type => "submit" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
   <% end %>
 

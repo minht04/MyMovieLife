@@ -56,8 +56,4 @@ class Member < ApplicationRecord
     end
   end
 
-  def active_for_authentication?  # 削除済みユーザーをログインさせない
-    super && (self.is_deleted == false)
-  end  
-  
 end

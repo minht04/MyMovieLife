@@ -13,13 +13,15 @@
          <% end %>
       </p>
       <% end %>
+      <p>
       <% if current_member != @member %>
         <% if current_member.following?(@member) %>
-          <%= link_to 'unfollow', member_relationships_path(@member), method: :delete, class: "btn btn-secondary" %>
+          <%= link_to 'unfollow', member_relationships_path(@member), method: :delete, class: "btn btn-outline-secondary" %>
         <% else %>
-          <%= link_to 'follow', member_relationships_path(@member), method: :post, class: "btn btn-primary" %>
+          <%= link_to 'follow', member_relationships_path(@member), method: :post, class: "btn btn-outline-primary" %>
         <% end %>
       <% end %>
+      </p>
 
       <p>
         <%= link_to follows_member_path(@member), class:"btn btn-light" do %>
@@ -46,11 +48,10 @@
     <div class="row row-cols-4">
       <% @posts.each do |post| %>
       <div class="cols">
-        <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
-        <p><%= link_to post_path(post) do %>
-            <%= post.movie %>
-          <% end %>
-          </p>
+        <%= link_to post_path(post) do %>
+          <%= attachment_image_tag post, :image, :fill, 120, 120, format: 'jpeg', fallback: "unnamed.jpg", size:'120x120' %>
+          <p><%= post.movie %></p>
+        <% end %>
       </div>
       <% end %>
     </div>

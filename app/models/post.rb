@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   has_many :notifications, dependent: :destroy
 
+  validates :movie, presence: true
+
   def favorites_by?(member)
     favorites.where(member_id: member.id).exists?
   end

@@ -10,9 +10,12 @@ class Member::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     tag_list = params[:post][:tag_name].split(',')
-    @post.save
+    if @post.save
     @post.save_tag(tag_list)
     redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
   def index

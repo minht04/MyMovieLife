@@ -81,7 +81,7 @@
   background-image: image-url("about1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position: center;
 }
 .about-visual-text {
   padding-top: 105px;
@@ -155,5 +155,34 @@ a {
 }
 .pagination {
  justify-content: center;
+}
+
+@media screen and (max-width: 425px) {
+  .top-visual-content{
+   background-position: center;
+   height: 400px;
+  }
+
+  .top-visual-text {
+    padding-top: 100px;
+  }
+
+  .social {
+    padding-top: 150px;
+  }
+
+/*
+  #theTarget {
+    height: 300px;
+  }
+*/
+  .about-visual-content {
+    height: 250px;
+  }
+
+  .about-visual-text {
+    padding-top: 50px;
+  }
+
 }
 

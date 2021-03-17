@@ -16,9 +16,12 @@
 <% if member_signed_in? %>
   <%= form_tag(members_path, method: :get) do %>
     <%= text_field_tag 'content', @content, placeholder:"検索はこちら" %>
-    <%= submit_tag 'search' %>
+    <%= button_tag :type => "submit" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
   <% end %>
 <% end %>
+
 
   <div class="row row-cols-4 mt-5">
     <% @members.each do |member| %>

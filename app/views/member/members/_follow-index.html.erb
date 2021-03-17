@@ -10,6 +10,7 @@
       </tr>
     </thead>
     <tbody>
+    
     <% members.each do |member| %>
       <tr>
         <td>
@@ -23,9 +24,9 @@
         <% if current_member != member %>
         <td>
           <% if current_member.following?(member) %>
-            <%= link_to 'unfollow', member_relationships_path(member), method: :delete, class: "btn btn-secondary" %>
+            <%= link_to 'unfollow', member_relationships_path(member), method: :delete, class: "btn btn-outline-secondary" %>
           <% else %>
-            <%= link_to 'follow', member_relationships_path(member), method: :post, class: "btn btn-primary" %>
+            <%= link_to 'follow', member_relationships_path(member), method: :post, class: "btn btn-outline-primary" %>
           <% end %>
         </td>
         <% end %>
