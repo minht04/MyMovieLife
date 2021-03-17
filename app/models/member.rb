@@ -7,16 +7,6 @@ class Member < ApplicationRecord
   validates :name, length: {maximum: 20}, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
-  def self.guest
-    find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |member|
-      member.password = SecureRandom.urlsafe_base64
-    end
-  end
-
-  def active_for_authentication?  # 削除済みユーザーをログインさせない
-    super && (self.is_deleted == false)
-  end
-
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -59,5 +49,15 @@ class Member < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+  
+  def self.guest
+    find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  def active_for_authentication?  # 削除済みユーザーをログインさせない
+    super && (self.is_deleted == false)
+  end  
   
 end

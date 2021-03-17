@@ -23,9 +23,9 @@
         <% if current_member != member %>
         <td>
           <% if current_member.following?(member) %>
-            <%= link_to 'フォロー外す', member_relationships_path(member), method: :delete, class: "btn btn-secondary" %>
+            <%= link_to 'unfollow', member_relationships_path(member), method: :delete, class: "btn btn-secondary" %>
           <% else %>
-            <%= link_to 'フォローする', member_relationships_path(member), method: :post, class: "btn btn-primary" %>
+            <%= link_to 'follow', member_relationships_path(member), method: :post, class: "btn btn-primary" %>
           <% end %>
         </td>
         <% end %>

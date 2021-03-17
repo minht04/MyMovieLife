@@ -1,7 +1,7 @@
 <div class="container mt-5 mb-5" style="width: 800px;">
   <div class="row">
-    <div class="col-xs-6"></div>
-    <div class="col-lg-6 col-xs-6">
+
+    <div class="col-lg-6 offset-col-xs-12">
       <div class="post-body">
         <%= attachment_image_tag @post, :image, :fill, 250, 250, fallback: "unnamed.jpg", size:'250x250' %>
 
@@ -34,8 +34,8 @@
     </div>
 
     <!--コメント-->
-    <div class="col-xs-6"></div>
-    <div class="col-lg-6 col-xs-6">
+
+    <div class="col-lg-6 offset-col-xs-12">
       <ul>
         <li class="comment_create comment-list-none">
           <h5 class="text-left title"><i class="far fa-comments"></i></h5>

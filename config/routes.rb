@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -49,5 +50,8 @@ Rails.application.routes.draw do
     end
     resources :members, only: [:show, :edit, :index, :update]
   end
+
+ # 存在しないURLを打ち込んだときにトップページへ遷移 
+  get '*path' => redirect('/')
 
 end

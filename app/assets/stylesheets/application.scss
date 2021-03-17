@@ -17,22 +17,11 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
- #notice {
+ #notice,.text-active {
   color: green;
  }
 
- #alert {
-  color: red;
- }
-
- #error {
-  color: red;
- }
-
- .text-active {
-  color: green;
- }
- .text-invalid {
+ #alert,#error,.text-invalid {
   color: red;
  }
 
@@ -99,20 +88,65 @@
   padding-left: 50px;
 }
 
-.about-image, .about-text {
+.about-text {
   width: 380px;
   margin-top: 20px;
+}
+.about-image{
+  border: 1px solid #ddd;
+  width: 380px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.about-image img{
+  width: 100%;
+  transform: scale(1.1);
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition-duration: 0.5s;
+}
+.about-image img:hover{
+  filter: grayscale(0);
+  transition-duration: 0.5s;
 }
 
 .about-text {
   padding: 30px;
 }
 
-.signup-form,.signup-image,.signin-form,.signin-image {
+.signup-form,.signup-image,.signin-form {
   padding-top: 40px;
 }
 
-.signup-form a,.signin-form a {
+.signin-image{
+  padding-top: 40px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.signin-image img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.signin-image:hover img{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.signup-image{
+  padding-top: 40px;
+  overflow: hidden;
+}
+.signup-image img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.signup-image img:hover{
+  transform: scale(1.2) rotate(9deg);
+  transition-duration: 0.5s;
+}
+
+a {
   color: #698394;
 }
 
