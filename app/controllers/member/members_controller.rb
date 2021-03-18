@@ -16,12 +16,12 @@ class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @posts = @member.posts.page(params[:page]).reverse_order
+    @favorite_posts = @member.favorite_posts.page(params[:page]).reverse_order    #お気に入り一覧
   end
 
   def favorites
     @member = Member.find(params[:id])
     @posts = @member.posts.page(params[:page]).reverse_order
-    @favorite_posts = @member.favorite_posts    #お気に入り一覧で追加
   end
 
   def edit
