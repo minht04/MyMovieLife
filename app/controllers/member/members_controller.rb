@@ -63,7 +63,7 @@ class Member::MembersController < ApplicationController
     @members = @member.following_member
     follows_ids = @member.following_member.pluck(:id)  #フォローしている人のIDだけを取り出す
     follows_ids.push(@member.id)                       #フォローしている人のID配列に自分のIDも追加
-    @posts = Post.where(member_id: follows_ids).order(id: "desc").page(params[:page]).reverse_order
+    @posts = Post.where(member_id: follows_ids).page(params[:page]).reverse_order
   end
 
   private

@@ -150,6 +150,24 @@ a {
   color: #698394;
 }
 
+
+
+.index {
+  position: relative;
+  padding: 1rem 2rem calc(1rem + 8px);
+  background: #D9E1EA;
+}
+
+.index:before {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border: 1.5px solid #000;
+}
+
 .comment-list-none,#comments_area{
  list-style:none;
 }
