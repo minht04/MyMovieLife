@@ -2,20 +2,21 @@ class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :name, length: {maximum: 20}, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
+  has_many :sns_credentials, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   attachment :profile_image
-  
+
   #通知機能
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy    # 自分からの通知  
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy   # 相手からの通知   
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy    # 自分からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy   # 相手からの通知
 
   # フォローしている
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -38,7 +39,7 @@ class Member < ApplicationRecord
   def following?(member)
     following_member.include?(member)
   end
-  
+
   def create_notification_follow!(current_member)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_member.id, id, 'follow'])
     if temp.blank?
@@ -49,11 +50,60 @@ class Member < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
+
   def self.guest
     find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
     end
   end
+
+# SNS認証
+  def self.without_sns_data(auth)
+    member = Member.where(email: auth.info.email).first
+
+    if member.present?
+      sns = SnsCredential.create(
+        uid: auth.uid,
+        provider: auth.provider,
+        member_id: member.id
+      )
+    else
+      member = Member.new(
+        name: auth.info.name,
+        email: auth.info.email,
+      )
+      sns = SnsCredential.new(
+        uid: auth.uid,
+        provider: auth.provider
+      )
+    end
+    return { member: member ,sns: sns}
+  end
+
+   def self.with_sns_data(auth, snscredential)
+    member = Member.where(id: snscredential.member_id).first
+    unless member.present?
+      member = Member.new(
+        name: auth.info.name,
+        email: auth.info.email,
+      )
+    end
+    return {member: member}
+   end
+
+   def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      member = with_sns_data(auth, snscredential)[:member]
+      sns = snscredential
+    else
+      member = without_sns_data(auth)[:member]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return { member: member ,sns: sns}
+   end
+
 
 end

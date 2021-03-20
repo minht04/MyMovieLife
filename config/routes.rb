@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   devise_for :members, controllers: {
     sessions:      'members/sessions',
     passwords:     'members/passwords',
-    registrations: 'members/registrations'
+    registrations: 'members/registrations',
+    omniauth_callbacks: 'members/omniauth_callbacks'
   }
 
   devise_scope :member do

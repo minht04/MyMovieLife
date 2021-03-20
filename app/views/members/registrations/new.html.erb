@@ -35,6 +35,10 @@
           </div>
         <% end %>
         <%= link_to 'Guest login（For viewing）', members_guest_sign_in_path, method: :post %><br>
+
+
+        <%= link_to 'Google login', member_google_oauth2_omniauth_authorize_path %>
+
         <a href="/members/sign_in">Log in</a>
       </div>
     </div>
