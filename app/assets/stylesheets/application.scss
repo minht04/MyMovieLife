@@ -150,6 +150,9 @@ a {
   color: #698394;
 }
 
+h3 {
+ text-shadow: 1.5px 2px 1.5px #698394;
+}
 
 
 .index {
@@ -168,7 +171,7 @@ a {
   border: 1.5px solid #000;
 }
 
-.comment-list-none,#comments_area{
+#comments_area{
  list-style:none;
 }
 .pagination {
@@ -201,6 +204,9 @@ a {
   .about-visual-text {
     padding-top: 50px;
   }
+.hidden {
+  display:none;
+}
 
 }
 
