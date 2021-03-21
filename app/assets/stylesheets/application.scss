@@ -194,7 +194,7 @@ h3 {
  justify-content: center;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 544px) {
   .top-visual-content{
    background-position: center;
    height: 400px;
@@ -223,6 +223,11 @@ h3 {
   .hidden {
     display:none;
   }
+  /*
+  .about-form1 {
+    display: block;
+  }
+  */
 
 }
 

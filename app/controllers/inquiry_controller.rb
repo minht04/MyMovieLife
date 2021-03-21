@@ -18,9 +18,11 @@ class InquiryController < ApplicationController
 
   def thanks
     # メール送信
-    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))    
+    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
+    # 管理者に送信
     InquiryMailer.received_email(@inquiry).deliver
-
+    # お問い合わせ者に送信
+    #InquiryMailer.send_email(@inquiry).deliver
     # 完了画面を表示
     render :action => 'thanks'
   end
