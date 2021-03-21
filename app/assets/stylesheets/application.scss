@@ -165,21 +165,6 @@
 .signup-form,.signin-form {
   padding: 60px;
 }
-/*
-.signin-image{
-  padding-top: 40px;
-  overflow: hidden;
-  cursor: pointer;
-}
-.signin-image img{
-  width: 100%;
-  transition-duration: 0.5s;
-}
-.signin-image:hover img{
-  transform: scale(1.2);
-  transition-duration: 0.5s;
-}
-*/
 
 .signin-bg {
   background-image: image-url("signin.jpg");
@@ -194,24 +179,8 @@
   background-color:rgba(255,255,255,0.8);
   background-blend-mode:lighten;
   background-position: center;
+  height: 500px;
 }
-
-/*
-.signup-image{
-  padding-top: 40px;
-  overflow: hidden;
-}
-.signup-image img{
-  width: 100%;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-.signup-image img:hover{
-  transform: scale(1.2) rotate(9deg);
-  transition-duration: 0.5s;
-}
-
-*/
 
 // post  timeline index
 .index {
@@ -273,7 +242,7 @@
   }
 
   // signup,signin
-  .signup-bg .signin-bg {
+  .signup-bg,.signin-bg {
     height: 700px;
   }
 
