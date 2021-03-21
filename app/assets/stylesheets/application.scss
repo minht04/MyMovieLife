@@ -47,6 +47,17 @@
   font-family: 'Alegreya Sans SC', sans-serif;
  }
 
+  a {
+    color: #698394;
+  }
+  h3 {
+   text-shadow: 1.5px 2px 1.5px #698394;
+  }
+  .pagination {
+   justify-content: center;
+  }
+
+// top
  #theTarget {
   z-index: 0;
  }
@@ -72,6 +83,7 @@
   padding-left: 50px;
 }
 
+// about
 .about {
   margin: 40px 0 40px 0;
 }
@@ -117,7 +129,7 @@
 .about-form {
   margin: 30px;
   display: inline-block;
-  padding: .75em 4em;
+  padding: .60em 2em;
   border: 2px solid #333;
   border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
   color: #333;
@@ -125,15 +137,35 @@
   text-align: center;
 }
 
+/*フェードインアニメーションの指定*/
+.scrollanime {opacity: 0;} /*一瞬表示されるのを防ぐ*/
+.fadeInDown {
+    animation-name: fadeInDown;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    transform: translate(0);
+    }
+}
+.downup {transform: translateY(100px);}
+
+// contact
 .table input[type="text"] {
-  width: 250px;
+  width: 200px;
   height: 30px;
   }
 
-.signup-form,.signup-image,.signin-form {
-  padding-top: 40px;
+// signup,signin
+.signup-form,.signin-form {
+  padding: 60px;
 }
-
+/*
 .signin-image{
   padding-top: 40px;
   overflow: hidden;
@@ -147,7 +179,24 @@
   transform: scale(1.2);
   transition-duration: 0.5s;
 }
+*/
 
+.signin-bg {
+  background-image: image-url("signin.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  background-position: center;
+  height: 500px;
+}
+
+.signup-bg {
+  background-image: image-url("signup.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  background-position: center;
+}
+
+/*
 .signup-image{
   padding-top: 40px;
   overflow: hidden;
@@ -162,21 +211,14 @@
   transition-duration: 0.5s;
 }
 
-a {
-  color: #698394;
-}
+*/
 
-h3 {
- text-shadow: 1.5px 2px 1.5px #698394;
-}
-
-
+// post  timeline index
 .index {
   position: relative;
   padding: 1rem 2rem calc(1rem + 8px);
   background: #D9E1EA;
 }
-
 .index:before {
   position: absolute;
   top: -5px;
@@ -187,14 +229,14 @@ h3 {
   border: 1.5px solid #000;
 }
 
+// comment
 #comments_area{
  list-style:none;
 }
-.pagination {
- justify-content: center;
-}
+
 
 @media screen and (max-width: 544px) {
+  // top
   .top-visual-content{
    background-position: center;
    height: 400px;
@@ -213,6 +255,8 @@ h3 {
     height: 300px;
   }
 */
+
+// about
   .about-visual-content {
     height: 250px;
   }
@@ -220,14 +264,23 @@ h3 {
   .about-visual-text {
     padding-top: 50px;
   }
+
+  .about-form {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  // signup,signin
+  .signup-bg .signin-bg {
+    height: 700px;
+  }
+
+  // フォローフォロワー数の非表示
   .hidden {
     display:none;
   }
-  /*
-  .about-form1 {
-    display: block;
-  }
-  */
 
 }
 

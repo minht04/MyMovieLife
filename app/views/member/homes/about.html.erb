@@ -8,8 +8,8 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <div class="about-image"><%= image_tag 'about2.jpg', style:"width: 100%;height: 300px;"%></div>
-    <div class="about-text">
+    <div class="about-image scrollanime"><%= image_tag 'about2.jpg', style:"width: 100%;height: 300px;"%></div>
+    <div class="about-text scrollanime">
       <strong>
         Feel free to post <br>
         your impressions of the movie.
@@ -19,15 +19,15 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <div class="about-text">
+    <div class="about-text scrollanime">
       <strong>Let's "favorite".</strong><br><br>
       共感したものには「いいね」ができます
     </div>
-    <div class="about-image"><%= image_tag 'about3.jpg', style:"width: 100%;height: 300px;"%></div>
+    <div class="about-image scrollanime"><%= image_tag 'about3.jpg', style:"width: 100%;height: 300px;"%></div>
   </div>
   <div class="d-flex  justify-content-center">
-    <div class="about-image"><%= image_tag 'about4.jpg', style:"width: 100%;height: 300px;"%></div>
-    <div class="about-text">
+    <div class="about-image scrollanime"><%= image_tag 'about4.jpg', style:"width: 100%;height: 300px;"%></div>
+    <div class="about-text scrollanime">
       <strong>Let's "follow".</strong><br><br>
       気になるユーザーはフォローすることができます
     </div>
@@ -44,3 +44,18 @@
     </div>
   </div>
 </div>
+
+<script>
+$(function () {
+  $(window).scroll(function () {
+      const wHeight = $(window).height();
+      const scrollAmount = $(window).scrollTop();
+      $('.scrollanime').each(function () {
+          const targetPosition = $(this).offset().top;
+          if(scrollAmount > targetPosition - wHeight + 60) {
+              $(this).addClass("fadeInDown");
+          }
+      });
+    });
+});
+</script>
