@@ -114,6 +114,22 @@
   padding: 30px;
 }
 
+.about-form {
+  margin: 30px;
+  display: inline-block;
+  padding: .75em 4em;
+  border: 2px solid #333;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+.table input[type="text"] {
+  width: 250px;
+  height: 30px;
+  }
+
 .signup-form,.signup-image,.signin-form {
   padding-top: 40px;
 }
@@ -204,9 +220,9 @@ h3 {
   .about-visual-text {
     padding-top: 50px;
   }
-.hidden {
-  display:none;
-}
+  .hidden {
+    display:none;
+  }
 
 }
 
