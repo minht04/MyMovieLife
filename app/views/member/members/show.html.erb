@@ -32,6 +32,12 @@
         <%= link_to followers_member_path(@member), class:"btn btn-light" do %>
           <%= @member.followed.count %>followers<i class="fas fa-user-friends"></i>
         <% end %>
+      </p>
+      <p>
+        <%= link_to inquiry_index_path, class:"btn btn-light" do %>
+          contact<i class="far fa-question-circle"></i>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>

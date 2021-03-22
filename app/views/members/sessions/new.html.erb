@@ -26,6 +26,10 @@
 
     <%= link_to 'Guest login（For viewing）', members_guest_sign_in_path, method: :post %>
     <br>
+    <%= link_to member_google_oauth2_omniauth_authorize_path do %>
+      <i class="fab fa-google"></i>oogle login
+    <% end %><br>
     <a href="/members/sign_up">Sign up</a>
+    <%#= render "members/shared/links" %>
   </div>
 </div>
