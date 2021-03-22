@@ -58,6 +58,8 @@
    justify-content: center;
   }
 
+
+
 // top
  #theTarget {
   z-index: 0;
@@ -183,6 +185,11 @@
   height: 500px;
 }
 
+// mypage
+.mypage-form,.mypage-form-follow{
+  margin-bottom: 20px;
+}
+
 // post  timeline index
 .index {
   position: relative;
@@ -250,6 +257,22 @@
   // フォローフォロワー数の非表示
   .hidden {
     display:none;
+  }
+
+  // ユーザー一覧
+  .my-box-member {
+    padding-left: 100px;
+  }
+
+  // マイページ
+  .my-box-post {
+    padding-left: 80px;
+  }
+  .mypage-container {
+    margin-left: 40px;
+  }
+  .mypage-form,.mypage-form-follow {
+    display: inline-block;
   }
 
 }

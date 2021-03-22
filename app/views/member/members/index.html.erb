@@ -24,7 +24,7 @@
 
   <div class="d-lg-flex d-md-flex my-box-light flex-wrap mt-3">
     <% @members.each do |member| %>
-    <div class="my-box col-sm-3">
+    <div class="my-box-member col-sm-3">
       <%= link_to member_path(member) do %>
         <%= attachment_image_tag member, :profile_image, :fill, 120, 120, fallback: "no_image.jpg", size:'120x120' ,class: 'rounded-circle' %>
       <% end %>
