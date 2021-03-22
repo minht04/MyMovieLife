@@ -58,22 +58,10 @@
    justify-content: center;
   }
 
-
-
 // top
  #theTarget {
   z-index: 0;
  }
-
-.social  {
-  text-align: center;
-  font-size: 25px;
-  padding-top: 250px;
-}
-.social i {
-  display: inline-block;
-  margin-left: 20px;
-}
 
 .top-visual-content {
   height: 500px;
@@ -143,18 +131,18 @@
 /*フェードインアニメーションの指定*/
 .scrollanime {opacity: 0;} /*一瞬表示されるのを防ぐ*/
 .fadeInDown {
-    animation-name: fadeInDown;
-    animation-duration: 7s;
-    animation-fill-mode: forwards;
+  animation-name: fadeInDown;
+  animation-duration: 7s;
+  animation-fill-mode: forwards;
 }
 @keyframes fadeInDown {
-    0% {
-        opacity: 0;
-    }
-    100% {
-    opacity: 1;
-    transform: translate(0);
-    }
+  0% {
+      opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  transform: translate(0);
+  }
 }
 .downup {transform: translateY(100px);}
 
@@ -162,7 +150,7 @@
 .table input[type="text"] {
   width: 200px;
   height: 30px;
-  }
+}
 
 // signup,signin
 .signup-form,.signin-form {
@@ -222,16 +210,6 @@
   .top-visual-text {
     padding-top: 100px;
   }
-
-  .social {
-    padding-top: 150px;
-  }
-
-/*
-  #theTarget {
-    height: 300px;
-  }
-*/
 
 // about
   .about-visual-content {

@@ -39,7 +39,7 @@ class Member < ApplicationRecord
   def following?(member)
     following_member.include?(member)
   end
-
+  # 通知機能
   def create_notification_follow!(current_member)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_member.id, id, 'follow'])
     if temp.blank?
@@ -80,7 +80,7 @@ class Member < ApplicationRecord
     return { member: member ,sns: sns}
   end
 
-   def self.with_sns_data(auth, snscredential)
+  def self.with_sns_data(auth, snscredential)
     member = Member.where(id: snscredential.member_id).first
     unless member.present?
       member = Member.new(
@@ -89,9 +89,9 @@ class Member < ApplicationRecord
       )
     end
     return {member: member}
-   end
+  end
 
-   def self.find_oauth(auth)
+  def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
@@ -103,7 +103,7 @@ class Member < ApplicationRecord
       sns = without_sns_data(auth)[:sns]
     end
     return { member: member ,sns: sns}
-   end
+  end
 
 
 end
