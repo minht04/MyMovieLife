@@ -13,5 +13,4 @@ class Member::FavoritesController < ApplicationController
     @favorite = @post.favorites.find_by(member_id: current_member.id)
     @favorite.destroy
   end
-
 end

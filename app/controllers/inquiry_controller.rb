@@ -1,7 +1,7 @@
 class InquiryController < ApplicationController
   def index
     @inquiry = Inquiry.new
-    render :action => 'index'
+    render action: 'index'
   end
 
   def confirm
@@ -9,10 +9,10 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
     if @inquiry.valid?
       # OK。確認画面を表示
-      render :action => 'confirm'
+      render action: 'confirm'
     else
       # NG。入力画面を再表示
-      render :action => 'index'
+      render action: 'index'
     end
   end
 
@@ -22,8 +22,8 @@ class InquiryController < ApplicationController
     # 管理者に送信
     InquiryMailer.received_email(@inquiry).deliver
     # お問い合わせ者に送信
-    #InquiryMailer.send_email(@inquiry).deliver
+    # InquiryMailer.send_email(@inquiry).deliver
     # 完了画面を表示
-    render :action => 'thanks'
+    render action: 'thanks'
   end
 end

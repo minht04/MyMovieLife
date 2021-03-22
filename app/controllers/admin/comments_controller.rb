@@ -6,9 +6,10 @@ class Admin::CommentsController < ApplicationController
     @comment.destroy
     redirect_to request.referer
   end
-  
+
   private
+
   def comment_params
     params.require(:comment).permit(:body, :post_id, :member_id)
-  end  
+  end
 end

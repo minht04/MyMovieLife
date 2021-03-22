@@ -12,6 +12,4 @@ class Member::RelationshipsController < ApplicationController
     current_member.unfollow(params[:member_id])
     redirect_to request.referer
   end
-
-
 end

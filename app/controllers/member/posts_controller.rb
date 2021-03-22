@@ -1,6 +1,6 @@
 class Member::PostsController < ApplicationController
   before_action :authenticate_member!
-  before_action :correct_post,only: [:edit, :update, :destroy]
+  before_action :correct_post, only: %i[edit update destroy]
 
   def new
     @post = Post.new
@@ -11,8 +11,8 @@ class Member::PostsController < ApplicationController
     @post.member_id = current_member.id
     tag_list = params[:post][:tag_name].split(',')
     if @post.save
-    @post.save_tag(tag_list)
-    redirect_to post_path(@post)
+      @post.save_tag(tag_list)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -21,7 +21,7 @@ class Member::PostsController < ApplicationController
   def index
     @posts = Post.page(params[:page]).reverse_order
     # 検索
-    if params[:content] != nil
+    unless params[:content].nil?
       @content = params[:content]
       @posts = Post.where("movie like '%" + params[:content] + "%' or body like '%" + params[:content] + "%'").page(params[:page]).reverse_order
     end
@@ -38,7 +38,7 @@ class Member::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @tag_list = @post.tags.pluck(:tag_name).join(",")
+    @tag_list = @post.tags.pluck(:tag_name).join(',')
   end
 
   def update
@@ -55,18 +55,16 @@ class Member::PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def search       #タグごとに投稿一覧表示
+  # タグごとに投稿一覧表示
+  def search
     @tag_list = Tag.joins(:posts).group(:id)
-    @tag = Tag.find(params[:tag_id]) #クリックしたタグを取得
-    @posts = @tag.posts.page(params[:page]).reverse_order         #クリックしたタグの投稿を全て表示
+    @tag = Tag.find(params[:tag_id]) # クリックしたタグを取得
+    @posts = @tag.posts.page(params[:page]).reverse_order         # クリックしたタグの投稿を全て表示
   end
-
 
   def correct_post
     @post = Post.find(params[:id])
-    unless @post.member.id == current_member.id
-      redirect_to posts_path
-    end
+    redirect_to posts_path unless @post.member.id == current_member.id
   end
 
   private
@@ -74,6 +72,4 @@ class Member::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:movie, :title, :body, :image)
   end
-
-
 end

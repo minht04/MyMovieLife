@@ -3,11 +3,11 @@ class InquiryMailer < ApplicationMailer
 
   def received_email(inquiry)
     @inquiry = inquiry
-    mail(:from => inquiry.email, :subject => 'お問い合わせを承りました')
+    mail(from: inquiry.email, subject: 'お問い合わせを承りました')
   end
 
   def send_email(inquiry)
     @inquiry = inquiry
-    mail(:to => inquiry.email, :subject => 'お問い合わせありがとうございます')
+    mail(to: inquiry.email, subject: 'お問い合わせありがとうございます')
   end
 end

@@ -26,15 +26,16 @@ class Members::SessionsController < Devise::SessionsController
 
   protected
 
-  def reject_member   # 削除済みユーザーをログインさせない
+  # 削除済みユーザーをログインさせない
+  def reject_member
     @member = Member.find_by(email: params[:member][:email].downcase)
     if @member
-      if (@member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false))
-        flash[:alert] = "アカウントは削除されています。"
+      if @member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false)
+        flash[:alert] = 'アカウントは削除されています。'
         redirect_to new_member_session_path
       end
     else
-      flash[:alert] = "必須項目を入力してください。"
+      flash[:alert] = '必須項目を入力してください。'
     end
   end
 

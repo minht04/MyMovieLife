@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-
   belongs_to :member
   attachment :image
   has_many :comments, dependent: :destroy
@@ -15,23 +14,24 @@ class Post < ApplicationRecord
   end
 
   def save_tag(sent_tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    current_tags = tags.pluck(:tag_name) unless tags.nil?
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags
 
     old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
+      tags.delete Tag.find_by(tag_name: old)
     end
 
     new_tags.each do |new|
       new_post_tag = Tag.find_or_create_by(tag_name: new)
-      self.tags << new_post_tag
+      tags << new_post_tag
     end
   end
 
   def create_notification_favorite!(current_member)
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_member.id, member_id, id, 'favorite'])
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and post_id = ? and action = ? ', current_member.id,
+                               member_id, id, 'favorite'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_member.active_notifications.new(
@@ -40,9 +40,7 @@ class Post < ApplicationRecord
         action: 'favorite'
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+      notification.checked = true if notification.visitor_id == notification.visited_id
       notification.save if notification.valid?
     end
   end
@@ -66,10 +64,7 @@ class Post < ApplicationRecord
       action: 'comment'
     )
     # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
-
 end

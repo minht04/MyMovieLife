@@ -22,5 +22,4 @@ class Admin::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:movie, :title, :body, :image)
   end
-
 end
