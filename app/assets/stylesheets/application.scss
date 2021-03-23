@@ -203,6 +203,18 @@
  list-style:none;
 }
 
+// user index
+.my-box-member {
+  overflow: hidden;
+}
+.my-box-member img {
+  transition: 0.5s;
+}
+.my-box-member img:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 
 @media screen and (max-width: 544px) {
   // top

@@ -4,7 +4,7 @@ class Member::MembersController < ApplicationController
   before_action :check_guest, only: [:update]
 
   def index
-    @members = Member.page(params[:page]).reverse_order
+    @members = Member.page(params[:page]).reverse_order.per(8)
     # 検索
     unless params[:content].nil?
       @content = params[:content]
