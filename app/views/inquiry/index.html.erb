@@ -19,12 +19,12 @@
           <td><%= f.text_field :name %></td>
         </tr>
         <tr>
-          <td>mail address<span class="text-danger">（必須）</span></td>
+          <td>mail address<br><span class="text-danger">（必須）</span></td>
           <td><%= f.text_field :email %></td>
         </tr>
         <tr>
           <td>content</td>
-          <td><%= f.text_area :message, size:'20x10' %></td>
+          <td><%= f.text_area :message, size:'18x10' %></td>
         </tr>
       </table>
       <%= f.submit 'next', class: 'btn btn-outline-primary' %>
