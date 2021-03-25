@@ -41,14 +41,22 @@
  }
  main {
   flex: 1;
-  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Andale Mono',YuGothic,'Yu Gothic',sans-serif;
+  background-image: image-url("bg.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  background-position: center;
+ }
+
+ .tab-bg {
+  background-color:#FFF;
  }
 
  header {
   position: sticky;
   top: 0;
   z-index: 50;
-  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Andale Mono',YuGothic,'Yu Gothic',sans-serif;
  }
 
   a {
@@ -61,22 +69,6 @@
   .pagination {
    justify-content: center;
    }
-/*ページネーション自体のデザイン*/
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
-}
-
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
-}
-
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
-}
 
 // top
  #theTarget {
@@ -247,7 +239,7 @@
     padding-top: 100px;
   }
 
-// about
+  // about
   .about-visual-content {
     height: 250px;
   }
@@ -268,26 +260,31 @@
     height: 720px;
   }
 
-  // フォローフォロワー数の非表示
-  .hidden {
-    display:none;
-  }
-
-  // ユーザー一覧
+  // user index
   .my-box-member {
     padding-left: 100px;
   }
 
-  // マイページ
+  // mypage
   .my-box-post {
     padding-left: 60px;
   }
   .mypage-container {
-    margin-left: 40px;
+    margin-left: 30px;
   }
-  .mypage-form,.mypage-form-follow {
+  
+  .mypage-form {
     display: inline-block;
   }
+  
+  .mypage-form-follow {
+    display: inline-block;
+  }
+  
+  // フォローフォロワー数の非表示
+  .hidden {
+    display:none;
+  }  
 
 }
 
