@@ -230,17 +230,16 @@
 
 @media screen and (max-width: 544px) {
    main {
-    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif !important;
     background-image: image-url("bg.jpg");
-    background-color:rgba(255,255,255,0.8);
+    background-color:rgba(255,255,255,0.8) !important;
     background-blend-mode:lighten;
     background-position: center;
    }
-  
+
    header {
-    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
-   }  
-  
+    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif !important;
+   }
   // top
   .top-visual-content{
    background-position: center;
@@ -284,19 +283,19 @@
   .mypage-container {
     margin-left: 30px;
   }
-  
+
   .mypage-form {
     display: inline-block;
   }
-  
+
   .mypage-form-follow {
     display: inline-block;
   }
-  
+
   // フォローフォロワー数の非表示
   .hidden {
     display:none;
-  }  
+  }
 
 }
 
