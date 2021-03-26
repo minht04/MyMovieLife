@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   validates :movie, presence: true
+  validates :details, presence: true
 
   def favorites_by?(member)
     favorites.where(member_id: member.id).exists?

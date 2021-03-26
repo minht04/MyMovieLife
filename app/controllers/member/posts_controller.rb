@@ -23,7 +23,7 @@ class Member::PostsController < ApplicationController
     # 検索
     unless params[:content].nil?
       @content = params[:content]
-      @posts = Post.where("movie like '%" + params[:content] + "%' or body like '%" + params[:content] + "%'").page(params[:page]).reverse_order
+      @posts = Post.where("movie like '%" + params[:content] + "%' or details like '%" + params[:content] + "%'").page(params[:page]).reverse_order
     end
     @tag_list = Tag.joins(:posts).group(:id)
     @member = current_member.id
@@ -44,9 +44,12 @@ class Member::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     tag_list = params[:post][:tag_name].split(',')
-    @post.update(post_params)
-    @post.save_tag(tag_list)
-    redirect_to post_path(@post)
+    if @post.update(post_params)
+      @post.save_tag(tag_list)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -70,6 +73,6 @@ class Member::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:movie, :title, :body, :image)
+    params.require(:post).permit(:movie, :title, :details, :image)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_031400) do
+ActiveRecord::Schema.define(version: 2021_03_26_081016) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_031400) do
     t.integer "member_id"
     t.text "movie"
     t.string "title"
-    t.text "body"
+    t.text "details"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

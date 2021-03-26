@@ -5,7 +5,7 @@
     <%= attachment_image_tag @post, :image, fallback: "unnamed.jpg", id: "img_prev", style: "height: 250px; width: 250px;" %>
   </div>
   <div class="form-group">
-    <%= f.label :movie %>  ※入力必須
+    <%= f.label :movie %> ※入力必須
     <%= f.text_field :movie, placeholder:"映画のタイトル", class: "form-control movie" %>
   </div>
   <div class="form-group">
@@ -15,11 +15,11 @@
   <div class="form-group">
     <%= f.label :tag %><br>
      , を入れると複数のタグ付けができます。
-    <%= f.text_field :tag_name, value: @tag_list, placeholder:"アクション, ホラー,コメディー", class: "form-control tag_name" %>
+    <%= f.text_field :tag_name, value: @tag_list, placeholder:"アクション, ホラー,コメディ", class: "form-control tag_name" %>
   </div>
   <div class="form-group">
-    <%= f.label :more %>
-    <%= f.text_area :body, size:'5x5',class: "form-control more" %>
+    <%= f.label :details %> ※入力必須
+    <%= f.text_area :details, size:'5x5',class: "form-control more" %>
     <%= f.submit class: 'btn btn-light' %>
   </div>
 <% end %>

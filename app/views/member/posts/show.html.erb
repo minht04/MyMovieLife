@@ -20,7 +20,7 @@
 
         <p><i class="fas fa-film"></i><%= @post.movie %></p>
         <p><%= @post.title %></p>
-        <p><%= @post.body %></p>
+        <p><%= @post.details %></p>
         <% if @post.member == current_member %>
           <%= link_to edit_post_path(@post) do %>
             <i class="far fa-edit" style="color: black;"></i>
