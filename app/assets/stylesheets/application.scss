@@ -48,10 +48,6 @@
   background-position: center;
  }
 
- .tab-bg {
-  background-color:#FFF;
- }
-
  header {
   position: sticky;
   top: 0;
@@ -189,6 +185,10 @@
 .mypage-form,.mypage-form-follow{
   margin-bottom: 20px;
 }
+
+.tab-bg {
+  background-color:#FFF;
+ }
 
 .my-box-post {
   transition-duration: 0.5s;
