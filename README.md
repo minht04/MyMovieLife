@@ -1,4 +1,4 @@
-# My Movie Life
+# My Movie Life ![logo](https://user-images.githubusercontent.com/76896952/112626502-a412a280-8e73-11eb-8c87-4da6262463b9.png)
 
 ## サイト概要
 観た映画の感想を投稿するサイトです。<br>
