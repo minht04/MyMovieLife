@@ -33,13 +33,13 @@ class Member::MembersController < ApplicationController
     redirect_to member_path(@member.id)
   end
 
-  # follower一覧
+  # フォロー一覧
   def follows
     @member = Member.find(params[:id])
     @members = @member.following_member.page(params[:page]).reverse_order
   end
 
-  # followed一覧
+  # フォロワー一覧
   def followers
     @member = Member.find(params[:id])
     @members = @member.follower_member.page(params[:page]).reverse_order

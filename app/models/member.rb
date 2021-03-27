@@ -4,7 +4,7 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
-  validates :name, length: { maximum: 20 }, uniqueness: true
+  validates :name, length: { maximum: 20 }, uniqueness: true, presence: true
   validates :introduction, length: { maximum: 50 }
 
   has_many :sns_credentials, dependent: :destroy
@@ -18,14 +18,15 @@ class Member < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy    # 自分からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy   # 相手からの通知
 
-  # フォローしている
+  # フォローしている人取得
   has_many :follower, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
-  # フォローされている
+  # フォローされている人取得
   has_many :followed, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
-  # フォローしている人
-  has_many :follower_member, through: :followed, source: :follower
-  # フォローされている人
+  # 自分がフォローしている人
   has_many :following_member, through: :follower, source: :followed
+  # 自分がフォローされている人
+  has_many :follower_member, through: :followed, source: :follower
+  
 
   # フォローする
   def follow(member_id)
