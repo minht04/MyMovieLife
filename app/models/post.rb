@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_maps
   has_many :notifications, dependent: :destroy
 
-  validates :movie, presence: true
-  validates :details, presence: true
+  validates :movie, presence: { message: 'を入力してください' }
+  validates :details, presence: { message: 'を入力してください' }
 
   def favorites_by?(member)
     favorites.where(member_id: member.id).exists?

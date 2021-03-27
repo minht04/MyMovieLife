@@ -4,10 +4,12 @@
     <h3>New post</h3>
     <div id="error">
       <% if @post.errors.any? %>
-        <% @post.errors.full_messages.each do |message| %>
-          <%= message %>
-        <% end %>
-      <% end %>      
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
     <%= render 'form', post: @post %>
     </div>
