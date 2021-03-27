@@ -25,14 +25,14 @@
         </div>
       </div>
       <div class="mypage-form-follow">
-        <%= link_to follows_member_path(@member), class:"btn btn-light" do %>
-          <%= @member.follower.count %>follows<i class="fas fa-user-friends"></i>
-        <% end %>
+        <div id="follows-count_<%= current_member.id %>">
+          <%= render partial: "member/members/follows-count", locals: { member: @member } %>
+        </div>
       </div>
       <div class="mypage-form-follow">
-        <%= link_to followers_member_path(@member), class:"btn btn-light" do %>
-          <%= @member.followed.count %>followers<i class="fas fa-user-friends"></i>
-        <% end %>
+        <div id="followers-count_<%= @member.id %>">
+          <%= render partial: "member/members/followers-count", locals: { member: @member } %>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,3 @@
+<%= link_to followers_member_path(@member), class:"btn btn-light" do %>
+  <%= @member.followed.count %>followers<i class="fas fa-user-friends"></i>
+<% end %>

@@ -1,1 +1,3 @@
 $("#follow-btn_<%= @member.id %>").html("<%= j(render 'member/members/follow-btn', member: @member) %>");
+$("#follows-count_<%= current_member.id %>").html("<%= j(render 'member/members/follows-count', member: @member) %>");
+$("#followers-count_<%= @member.id %>").html("<%= j(render 'member/members/followers-count', member: @member) %>");
