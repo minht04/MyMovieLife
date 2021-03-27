@@ -28,9 +28,10 @@
           <span class="text-invalid">削除済み</span>
         <% else %>
           <span class="text-active">有効</class>
-        <% end %>  
+        <% end %>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<%= paginate @members %>

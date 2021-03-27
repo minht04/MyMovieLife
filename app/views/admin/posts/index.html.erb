@@ -17,7 +17,7 @@
   <% @posts.each do |post| %>
     <tr>
       <td>
-        <%= attachment_image_tag post, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
+        <%= attachment_image_tag post, :image, :fill, 40, 40, format: 'jpeg', fallback: "unnamed.jpg", size:'40x40' %>
       </td>
       <td><%= post.movie %></td>
       <td><%= post.title %></td>
@@ -26,3 +26,4 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @posts %>

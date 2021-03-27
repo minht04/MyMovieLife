@@ -36,13 +36,13 @@ class Member::MembersController < ApplicationController
   # follower一覧
   def follows
     member = Member.find(params[:id])
-    @members = member.following_member
+    @members = member.following_member.page(params[:page]).reverse_order
   end
 
   # followed一覧
   def followers
     member = Member.find(params[:id])
-    @members = member.follower_member
+    @members = member.follower_member.page(params[:page]).reverse_order
   end
 
   def ensure_correct_member
