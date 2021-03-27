@@ -12,7 +12,7 @@
 
         <p>映画名：<%= @post.movie %></p>
         <p><%= @post.title %></p>
-        <p><%= @post.body %></p>
+        <p><%= @post.details %></p>
         <%= link_to "削除", admin_post_path(@post), method: :delete %>
       </div>
     </div>
