@@ -20,13 +20,9 @@
       </div>
       <% end %>
       <div class="mypage-form">
-      <% if current_member != @member %>
-        <% if current_member.following?(@member) %>
-          <%= link_to 'unfollow', member_relationships_path(@member), method: :delete, class: "btn btn-outline-secondary" %>
-        <% else %>
-          <%= link_to 'follow', member_relationships_path(@member), method: :post, class: "btn btn-outline-primary" %>
-        <% end %>
-      <% end %>
+        <div id="follow-btn_<%= @member.id %>">
+          <%= render partial: "member/members/follow-btn", locals: { member: @member } %>
+        </div>
       </div>
       <div class="mypage-form-follow">
         <%= link_to follows_member_path(@member), class:"btn btn-light" do %>

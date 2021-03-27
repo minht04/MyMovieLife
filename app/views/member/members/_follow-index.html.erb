@@ -27,11 +27,9 @@
         <td class="hidden"><%= member.followed.count %></td>
         <% if current_member != member %>
         <td>
-          <% if current_member.following?(member) %>
-            <%= link_to 'unfollow', member_relationships_path(member), method: :delete, class: "btn btn-outline-secondary" %>
-          <% else %>
-            <%= link_to 'follow', member_relationships_path(member), method: :post, class: "btn btn-outline-primary" %>
-          <% end %>
+        <div id="follow-btn_<%= member.id %>">
+          <%= render partial: "member/members/follow-btn", locals: { member: member } %>
+        </div>
         </td>
         <% end %>
       </tr>
