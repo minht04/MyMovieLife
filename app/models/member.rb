@@ -10,7 +10,9 @@ class Member < ApplicationRecord
   has_many :sns_credentials, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  # ユーザーのいいねを取得
   has_many :favorites, dependent: :destroy
+  # ユーザーのマイページにユーザーがいいねしたもの表示させるため
   has_many :favorite_posts, through: :favorites, source: :post
   attachment :profile_image
 

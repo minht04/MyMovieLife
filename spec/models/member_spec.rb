@@ -51,11 +51,17 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
       end
     end
 
-    context 'Favoriteモデルとの関係' do
+    context 'Favoriteモデル(Favorite)との関係' do
       it '1:Nの関係になっている' do
         expect(Member.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
+    
+    context 'Favoriteモデル(Favorite_post)との関係' do
+      it '1:Nの関係になっている' do
+        expect(Member.reflect_on_association(:favorite_posts).macro).to eq :has_many
+      end
+    end    
 
     context 'Relationshipモデル(フォローしている人(follower))との関係' do
       it '1:Nの関係になっている' do
