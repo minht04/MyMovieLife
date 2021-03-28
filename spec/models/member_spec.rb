@@ -56,12 +56,12 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:favorites).macro).to eq :has_many
       end
     end
-    
+
     context 'Favoriteモデル(Favorite_post)との関係' do
       it '1:Nの関係になっている' do
         expect(Member.reflect_on_association(:favorite_posts).macro).to eq :has_many
       end
-    end    
+    end
 
     context 'Relationshipモデル(フォローしている人(follower))との関係' do
       it '1:Nの関係になっている' do
@@ -86,12 +86,12 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:following_member).macro).to eq :has_many
       end
     end
-    
+
     context '自分がフォローしている人(follower_member)との関係' do
       it '1:Nの関係になっている' do
         expect(Member.reflect_on_association(:follower_member).macro).to eq :has_many
       end
-    end    
+    end
 
     context 'Notificationモデル(active_notifications(自分から相手への通知))との関係' do
       it '1:Nの関係になっている' do
@@ -101,7 +101,7 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:active_notifications).class_name).to eq 'Notification'
       end
     end
-      
+
     context 'Notificationモデル(passive_notifications(相手から自分への通知))との関係' do
       it '1:Nの関係になっている' do
         expect(Member.reflect_on_association(:passive_notifications).macro).to eq :has_many
@@ -110,7 +110,13 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:passive_notifications).class_name).to eq 'Notification'
       end
     end
-    
+
+    context 'SnsCredentialモデルとの関係' do
+      it '1:Nの関係になっている' do
+        expect(Member.reflect_on_association(:sns_credentials).macro).to eq :has_many
+      end
+    end
+
   end
-  
+
 end

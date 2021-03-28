@@ -47,7 +47,7 @@ RSpec.describe 'Postモデルのテスト', type: :model do
       end
     end
 
-    context 'Tag_mapモデルとの関係' do
+    context 'TagMapモデルとの関係' do
       it '1:Nの関係になっている' do
         expect(Post.reflect_on_association(:tag_maps).macro).to eq :has_many
       end
