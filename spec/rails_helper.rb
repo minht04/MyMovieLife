@@ -62,4 +62,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+  # Deviseのメソッド(sign_inヘルパーなど）をrequest spec内で使用するため
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
