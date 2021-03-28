@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
+  describe 'モデルのテスト' do
+    it '有効な投稿内容の場合に保存されるか' do
+      expect(FactoryBot.build(:post)).to be_valid
+    end
+  end
+
   describe 'バリデーションのテスト' do
     subject { post.valid? }
 
