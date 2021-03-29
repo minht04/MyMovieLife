@@ -25,7 +25,7 @@ Guest login（For viewing）ボタンから、メールアドレスとパスワ�
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sLGkk/edit#gid=2076875427
 - ユーザー認証、SNS認証
-- 投稿機能
+- 投稿機能、画像アップロード
 - タグ付け機能
 - コメント機能
 - いいね機能
@@ -37,7 +37,7 @@ https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sL
 
 ## 環境・使用技術
 ### フロントエンド
-- Bootstrap 4.5.0 
+- Bootstrap 4.5.0
 - JavaScript、jQuery、Ajax
 ### バックエンド
 - Ruby 2.6.3
