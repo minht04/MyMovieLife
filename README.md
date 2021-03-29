@@ -36,11 +36,15 @@ https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sL
 - レスポンシブデザイン
 
 ## 環境・使用技術
+### フロントエンド
+- HTML、CSS
 - Bootstrap 4.5.0
 - JavaScript、jQuery、Ajax
+### バックエンド
 - Ruby 2.6.3
 - Rails 5.2.4.5
-- AWS（EC2、RDS、Route53）
+### インフラ
+- AWS（Cloud9、EC2、RDS、Route53）
 - MySQL2
 - Nginx、Puma
 - CircleCi CI/CD
