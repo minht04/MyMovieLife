@@ -14,5 +14,4 @@ RSpec.describe 'Favoriteモデルのテスト', type: :model do
       end
     end
   end
-
 end

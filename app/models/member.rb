@@ -28,7 +28,6 @@ class Member < ApplicationRecord
   has_many :following_member, through: :follower, source: :followed
   # 自分がフォローされている人
   has_many :follower_member, through: :followed, source: :follower
-  
 
   # フォローする
   def follow(member_id)

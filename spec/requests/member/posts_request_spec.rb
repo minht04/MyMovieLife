@@ -7,7 +7,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe '投稿新規登録画面の表示' do
     context 'ログインしていない場合' do
-      it "ログインページへリダイレクトすること" do
+      it 'ログインページへリダイレクトすること' do
         get new_post_path
         expect(response).to redirect_to new_member_session_path
       end
@@ -24,7 +24,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe '投稿一覧画面の表示' do
     context 'ログインしていない場合' do
-      it "ログインページへリダイレクトすること" do
+      it 'ログインページへリダイレクトすること' do
         get posts_path
         expect(response).to redirect_to new_member_session_path
       end
@@ -41,7 +41,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe '投稿詳細画面の表示' do
     context 'ログインしていない場合' do
-      it "ログインページへリダイレクトすること" do
+      it 'ログインページへリダイレクトすること' do
         get post_path post.id
         expect(response).to redirect_to new_member_session_path
       end
@@ -58,7 +58,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe '投稿編集画面の表示' do
     context 'ログインしていない場合' do
-      it "ログインページへリダイレクトすること" do
+      it 'ログインページへリダイレクトすること' do
         get edit_post_path post.id
         expect(response).to redirect_to new_member_session_path
       end
@@ -81,5 +81,4 @@ RSpec.describe 'Posts', type: :request do
       end
     end
   end
-
 end

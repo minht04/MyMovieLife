@@ -14,5 +14,4 @@ RSpec.describe 'TagMapモデルのテスト', type: :model do
       end
     end
   end
-
 end

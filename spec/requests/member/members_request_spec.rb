@@ -6,7 +6,7 @@ RSpec.describe 'Members', type: :request do
 
   describe 'ユーザー一覧画面の表示' do
     context 'ログインしていない場合' do
-      it "ログインページへリダイレクトすること" do
+      it 'ログインページへリダイレクトすること' do
         get members_path
         expect(response).to redirect_to new_member_session_path
       end
@@ -63,5 +63,4 @@ RSpec.describe 'Members', type: :request do
       end
     end
   end
-
 end

@@ -34,5 +34,4 @@ RSpec.describe 'Notificationモデルのテスト', type: :model do
       end
     end
   end
-
 end

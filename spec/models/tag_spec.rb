@@ -14,5 +14,4 @@ RSpec.describe 'Tagモデルのテスト', type: :model do
       end
     end
   end
-
 end

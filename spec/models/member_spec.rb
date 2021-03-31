@@ -116,7 +116,5 @@ RSpec.describe 'Memberモデルのテスト', type: :model do
         expect(Member.reflect_on_association(:sns_credentials).macro).to eq :has_many
       end
     end
-
   end
-
 end

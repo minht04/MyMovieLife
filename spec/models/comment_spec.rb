@@ -35,5 +35,4 @@ RSpec.describe 'Commentモデルのテスト', type: :model do
       end
     end
   end
-
 end
