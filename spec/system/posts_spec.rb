@@ -34,6 +34,13 @@ RSpec.describe 'Posts', type: :system do
       end
     end
   end
+  
+  describe '詳細画面のテスト' do
+    before do
+      sign_in member
+      visit edit_post_path 
+    end
+  end  
 
 
 end
