@@ -34,13 +34,18 @@ RSpec.describe 'Posts', type: :system do
       end
     end
   end
-  
+
   describe '詳細画面のテスト' do
     before do
       sign_in member
-      visit edit_post_path 
+      visit edit_post_path
     end
-  end  
+    context '表示のテスト' do
+      it '編集リンクが表示されているか' do
+        expect(page).to have_link edit_post_path(Post)
+      end
+    end
+  end
 
 
 end
