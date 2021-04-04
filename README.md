@@ -36,9 +36,9 @@ https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sL
 - 検索機能
 - お問い合わせ機能
 - レスポンシブデザイン<br>
-<img width="211" alt="responsive1" src="https://user-images.githubusercontent.com/76896952/113505788-035f6980-957c-11eb-9039-a1c8def7e205.png">
-<img width="213" alt="responsive2" src="https://user-images.githubusercontent.com/76896952/113505817-29850980-957c-11eb-80f6-26657e171bba.png">
-<img width="215" alt="responsive3" src="https://user-images.githubusercontent.com/76896952/113505821-31dd4480-957c-11eb-8f93-a3cb356f3f5a.png">
+<span>![responsive1](https://user-images.githubusercontent.com/76896952/113506268-b3ce6d00-957e-11eb-80e0-fd100908e299.jpg)</span>
+<span>![responsive2](https://user-images.githubusercontent.com/76896952/113506273-b7fa8a80-957e-11eb-9f0d-3befc57cf458.jpg)</span>
+<span>![responsive3](https://user-images.githubusercontent.com/76896952/113506277-ba5ce480-957e-11eb-8420-0169774f3329.jpg)</span>
 
 ## 環境・使用技術
 ### フロントエンド
