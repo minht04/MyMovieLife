@@ -44,15 +44,15 @@
   <div class="tab-bg">
     <ul class="nav nav-tabs nav-justified" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">posts</a>
+        <a class="nav-link active" id="post-tab" data-toggle="tab" href="#post" role="tab" aria-controls="post" aria-selected="true">posts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">favorite</a>
+        <a class="nav-link" id="favorite-tab" data-toggle="tab" href="#favorite" role="tab" aria-controls="favorite" aria-selected="false">favorite</a>
       </li>
     </ul>
   <!--投稿一覧-->
     <div class="tab-content">
-      <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+      <div class="tab-pane fade show active" id="post" role="tabpanel" aria-labelledby="post-tab">
         <% if @posts.count > 0 %>
           <%= render 'list', posts: @posts %>
         <% else %>
@@ -60,7 +60,7 @@
         <% end %>
       </div>
   <!--お気に入り一覧-->
-      <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+      <div class="tab-pane fade" id="favorite" role="tabpanel" aria-labelledby="favorite-tab">
         <% if @favorite_posts.count > 0 %>
           <%= render 'list', posts: @favorite_posts %>
         <% else %>

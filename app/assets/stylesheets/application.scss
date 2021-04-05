@@ -68,8 +68,17 @@
    }
 
 // top
- #theTarget {
+#theTarget {
   z-index: 0;
+ }
+
+.swiper-slide {
+  width: 100%;
+ }
+
+.swiper-slide img {
+  width: 100%;
+  height: 500px;
  }
 
 .top-visual-content {
@@ -112,6 +121,7 @@
 }
 .about-image img{
   width: 100%;
+  height: 300px;
   transform: scale(1.1);
   cursor: pointer;
   filter: grayscale(100%);

@@ -1,7 +1,7 @@
 <!--コメント内容（2件）-->
 <%= comments.count %> comments <i class="far fa-comments"></i>
 <% if comments.count > 2 %>
-  <a class="more" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">more...</a>
+  <a class="more" data-toggle="collapse" href="#comment" aria-expanded="false" aria-controls="comment">more...</a>
 <% end %>
 <% comments.first(2).each do |comment| %>
   <% unless comment.id.nil? %>
@@ -30,7 +30,7 @@
 <% end %>
 
 <!--コメント内容（3件目以降）-->
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="comment">
   <% comments.offset(2).each do |comment| %>
     <% unless comment.id.nil? %>
       <div class="comment-container">
