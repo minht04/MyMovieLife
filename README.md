@@ -52,3 +52,10 @@ https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sL
 - MySQL2
 - Nginx、Puma
 - CircleCi CI/CD
+### その他使用技術
+- 非同期通信（コメント・いいね・フォロー）
+- 外部API（Google OAuth）
+- Action Mailer
+- Rubocop
+- RSpec（単体/結合）
+- HTTPS接続（Certbot）
