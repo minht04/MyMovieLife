@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Members', type: :request do
+RSpec.describe 'Member::Members', type: :request do
   let(:member) { create(:member) }
   let(:other_member) { create(:member) }
 
