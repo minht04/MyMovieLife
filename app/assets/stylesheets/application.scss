@@ -81,6 +81,10 @@
   height: 500px;
  }
 
+.swiper-button-next, .swiper-button-prev {
+  color: #F8F9FA !important;
+}
+
 .top-visual-content {
   height: 500px;
   background-image: image-url("image6.jpg");
@@ -204,6 +208,11 @@
 .my-box-post {
   transition-duration: 0.5s;
 }
+// プロフィール画像、投稿画像の表示サイズ
+#img_prev {
+  height: 250px;
+  width: 250px;
+}
 
 // post  timeline index
 .index {
@@ -303,4 +312,3 @@
   }
 
 }
-

@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.label :image %>
     <%= f.attachment_field :image, class: "form-control-file image" %><br>
-    <%= attachment_image_tag @post, :image, fallback: "unnamed.jpg", id: "img_prev", style: "height: 250px; width: 250px;" %>
+    <%= attachment_image_tag @post, :image, fallback: "unnamed.jpg", id: "img_prev" %>
   </div>
   <div class="form-group">
     <%= f.label :movie %> ※入力必須
