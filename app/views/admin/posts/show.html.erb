@@ -27,7 +27,7 @@
               <div class="comment-container">
                 <div class="comment-box">
                   <div class="comment-avatar">
-                    <%= attachment_image_tag comment.member, :profile_image, fallback: "no_image.jpg", class:"comment-image", size: "40x40", class:'rounded-circle' %>
+                    <%= attachment_image_tag comment.member, :profile_image, fallback: "no_image.jpg", class:"comment-image rounded-circle", size: "40x40" %>
                   </div>
                   <div class="comment-text">
                     <p><%= link_to "@#{comment.member.name}", member_path(comment.member.id) %></p>

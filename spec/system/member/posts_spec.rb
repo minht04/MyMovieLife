@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'Postsコントローラーのテスト', type: :system do
+RSpec.describe 'Member::Postsコントローラーのテスト', type: :system do
   let(:member) { create(:member) }
   let(:other_member) { create(:member) }
   let!(:post) { create(:post, movie:'hoge',title:'hoge',details:'hoge', member_id: member.id) }
+  let!(:comment) { create(:comment, post_id: post.id, member_id: other_member.id) }
 
   before do
     sign_in member
@@ -46,10 +47,20 @@ RSpec.describe 'Postsコントローラーのテスト', type: :system do
       visit post_path(post)
     end
     context '表示の確認' do
-      it '投稿されたものが表示されているか' do
+      it '投稿されたmovieが表示されているか' do
         expect(page).to have_content post.movie
+      end
+      it '投稿されたtitleが表示されているか' do
         expect(page).to have_content post.title
+      end
+      it '投稿されたdetailsが表示されているか' do
         expect(page).to have_content post.details
+      end
+      it 'コメントが表示されているか' do
+        expect(page).to have_content comment.body
+      end
+      it 'コメントした人の名前が表示されているか' do
+        expect(page).to have_content comment.member.name
       end
     end
     context '投稿削除処理のテスト' do

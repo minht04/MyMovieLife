@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Membersコントローラーのテスト', type: :system do
+RSpec.describe 'Member::Membersコントローラーのテスト', type: :system do
   let!(:member) { create(:member) }
   let!(:other_member) { create(:member) }
   let!(:post) { create(:post, member_id: member.id) }
@@ -10,7 +10,7 @@ RSpec.describe 'Membersコントローラーのテスト', type: :system do
     sign_in member
   end
 
-  describe 'ユーザー一覧のテスト' do
+  describe 'ユーザー一覧画面のテスト' do
     before do
       visit members_path
     end
