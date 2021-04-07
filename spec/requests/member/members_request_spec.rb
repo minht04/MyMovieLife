@@ -63,4 +63,37 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
       end
     end
   end
+
+  describe 'フォロー一覧画面の表示' do
+    context 'ログインしていない場合' do
+      it 'ログインページへリダイレクトすること' do
+        get follows_member_path member.id
+        expect(response).to redirect_to new_member_session_path
+      end
+    end
+    context 'ログインしている場合' do
+      it 'リクエストが成功すること' do
+        sign_in member
+        get follows_member_path member.id
+        expect(response).to have_http_status '200'
+      end
+    end
+  end
+
+  describe 'フォロワー一覧画面の表示' do
+    context 'ログインしていない場合' do
+      it 'ログインページへリダイレクトすること' do
+        get followers_member_path member.id
+        expect(response).to redirect_to new_member_session_path
+      end
+    end
+    context 'ログインしている場合' do
+      it 'リクエストが成功すること' do
+        sign_in member
+        get followers_member_path member.id
+        expect(response).to have_http_status '200'
+      end
+    end
+  end
+
 end
