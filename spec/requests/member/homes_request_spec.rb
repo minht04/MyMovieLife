@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Homes', type: :request do
+RSpec.describe 'Homesリクエストのテスト', type: :request do
   describe 'トップページ(ルート)' do
     context 'ページが正しく表示される' do
       before do

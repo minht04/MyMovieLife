@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Member::Posts', type: :request do
+RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
   let(:member) { create(:member) }
   let(:other_member) { create(:member) }
-  let!(:post) { create(:post, member_id: member.id) }
+  let(:post) { create(:post, member_id: member.id) }
 
   describe '投稿新規登録画面の表示' do
     context 'ログインしていない場合' do
