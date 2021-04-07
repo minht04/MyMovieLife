@@ -79,18 +79,34 @@ RSpec.describe 'Postsコントローラーのテスト', type: :system do
       end
       it '編集前の詳細がフォームに表示されている' do
         expect(page).to have_field 'post[details]',with:post.details
-      end      
+      end
       it '保存ボタンが表示されている' do
         expect(page).to have_button 'Update Post'
       end
     end
+
     context '投稿更新処理のテスト' do
-      it '更新後のリダイレクト先はその投稿詳細画面である' do
+      before do
+        @post_old_movie = post.movie
+        @post_old_title = post.title
+        @post_old_details = post.details
         fill_in 'post[movie]',with:Faker::Lorem.characters(number:10)
         fill_in 'post[title]',with:Faker::Lorem.characters(number:10)
         fill_in 'post[details]',with:Faker::Lorem.characters(number:20)
         click_button 'Update Post'
+      end
+
+      it '更新後のリダイレクト先はその投稿詳細画面である' do
         expect(page).to have_current_path post_path(post)
+      end
+      it 'movieが正しく更新されている' do
+        expect(post.reload.movie).not_to eq @post_old_movie
+      end
+      it 'titleが正しく更新されている' do
+        expect(post.reload.title).not_to eq @post_old_title
+      end
+      it 'detailsが正しく更新されている' do
+        expect(post.reload.details).not_to eq @post_old_details
       end
     end
   end

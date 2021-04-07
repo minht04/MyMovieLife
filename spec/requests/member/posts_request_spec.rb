@@ -81,4 +81,15 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
       end
     end
   end
+  
+  describe '投稿の削除' do
+    context '投稿者がログインしている場合' do
+      it 'リクエストが成功すること' do
+        sign_in member
+        delete post_path post.id
+        expect(response).to have_http_status '302'
+      end
+    end
+  end
+
 end
