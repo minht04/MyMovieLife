@@ -63,6 +63,8 @@ class Member < ApplicationRecord
   end
 
   # SNS認証
+  # uid:プロバイダーに固有の識別子
+  # provider:プロバイダー(google)
   def self.without_sns_data(auth)
     member = Member.where(email: auth.info.email).first
 
@@ -96,10 +98,10 @@ class Member < ApplicationRecord
     { member: member }
   end
 
-  def self.find_oauth(auth)
+  def self.find_oauth(auth)    # SNSから取得したproviderとuidを使って既存ユーザーを検索
     uid = auth.uid
     provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first   # SNS認証したことがあればアソシエーションで取得
     if snscredential.present?
       member = with_sns_data(auth, snscredential)[:member]
       sns = snscredential
@@ -107,6 +109,6 @@ class Member < ApplicationRecord
       member = without_sns_data(auth)[:member]
       sns = without_sns_data(auth)[:sns]
     end
-    { member: member, sns: sns }
+    { member: member, sns: sns }   # コントローラーがこれを受け取る
   end
 end
