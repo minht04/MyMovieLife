@@ -5,7 +5,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
   let(:other_member) { create(:member) }
   let(:post) { create(:post, member_id: member.id) }
 
-  describe '投稿新規登録画面の表示' do
+  describe '投稿新規登録画面の表示(GET #new)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get new_post_path
@@ -22,7 +22,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
     end
   end
 
-  describe '投稿一覧画面の表示' do
+  describe '投稿一覧画面の表示(GET #index)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get posts_path
@@ -39,7 +39,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
     end
   end
 
-  describe '投稿詳細画面の表示' do
+  describe '投稿詳細画面の表示(GET #show)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get post_path post.id
@@ -56,7 +56,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
     end
   end
 
-  describe '投稿編集画面の表示' do
+  describe '投稿編集画面の表示(GET #edit)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get edit_post_path post.id
@@ -82,7 +82,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
     end
   end
   
-  describe '投稿の削除' do
+  describe '投稿の削除(DELETE #destroy)' do
     context '投稿者がログインしている場合' do
       it 'リクエストが成功すること' do
         sign_in member

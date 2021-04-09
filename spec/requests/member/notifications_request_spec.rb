@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Member::Notificationsリクエストのテスト', type: :request do
   let(:member) { create(:member) }
 
-  describe '通知一覧画面の表示' do
+  describe '通知一覧画面の表示(GET #index)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get member_notifications_path member.id

@@ -4,7 +4,7 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
   let(:member) { create(:member) }
   let(:other_member) { create(:member) }
 
-  describe 'ユーザー一覧画面の表示' do
+  describe 'ユーザー一覧画面の表示(GET #index)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get members_path
@@ -21,7 +21,7 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
     end
   end
 
-  describe 'ユーザー詳細画面の表示' do
+  describe 'ユーザー詳細画面の表示(GET #show)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get member_path member.id
@@ -38,7 +38,7 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
     end
   end
 
-  describe 'ユーザー編集画面の表示' do
+  describe 'ユーザー編集画面の表示(GET #edit)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get edit_member_path member.id
@@ -64,7 +64,7 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
     end
   end
 
-  describe 'フォロー一覧画面の表示' do
+  describe 'フォロー一覧画面の表示(GET #follows)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get follows_member_path member.id
@@ -80,7 +80,7 @@ RSpec.describe 'Member::Membersリクエストのテスト', type: :request do
     end
   end
 
-  describe 'フォロワー一覧画面の表示' do
+  describe 'フォロワー一覧画面の表示(GET #followers)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get followers_member_path member.id
