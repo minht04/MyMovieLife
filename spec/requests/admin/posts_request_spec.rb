@@ -5,7 +5,7 @@ RSpec.describe 'Admin::Postsリクエストのテスト' , type: :request do
   let(:member) { create(:member) }
   let(:post) { create(:post, member_id: member.id) }
 
-  describe '投稿一覧画面の表示' do
+  describe '投稿一覧画面の表示(GET #index)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get admin_posts_path
@@ -22,7 +22,7 @@ RSpec.describe 'Admin::Postsリクエストのテスト' , type: :request do
     end
   end
 
-  describe '投稿詳細画面の表示' do
+  describe '投稿詳細画面の表示(GET #show)' do
     context 'ログインしていない場合' do
       it 'ログインページへリダイレクトすること' do
         get admin_post_path post.id
@@ -39,7 +39,7 @@ RSpec.describe 'Admin::Postsリクエストのテスト' , type: :request do
     end
   end
 
-  describe '投稿の削除' do
+  describe '投稿の削除(DELETE #destroy)' do
     context 'ログインしている場合' do
       it 'リクエストが成功すること' do
         sign_in admin
