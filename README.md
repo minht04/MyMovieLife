@@ -25,7 +25,7 @@ https://mymovielife.work/ <br>
 - 観た映画の感想を記録したいとき
 
 ## 機能一覧
-https://docs.google.com/spreadsheets/d/1KZ4hJAV8E86cj_TwJGsXJLAJT5NKLnJzPrVeP6sLGkk/edit#gid=2076875427
+https://docs.google.com/spreadsheets/d/1YWZfjc2MvwDH84bxL13jJ65aMVjRce94ZTVZvUQGl8s/edit#gid=2076875427
 - ユーザー認証、SNS認証
 - 投稿機能、画像アップロード
 - タグ付け機能
