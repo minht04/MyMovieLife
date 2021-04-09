@@ -14,6 +14,7 @@ class Post < ApplicationRecord
     favorites.where(member_id: member.id).exists?
   end
 
+  # タグ付け機能
   def save_tag(sent_tags)
     current_tags = tags.pluck(:tag_name) unless tags.nil?
     old_tags = current_tags - sent_tags
@@ -29,6 +30,7 @@ class Post < ApplicationRecord
     end
   end
 
+  # 通知機能
   def create_notification_favorite!(current_member)
     # すでに「いいね」されているか検索
     temp = Notification.where(['visitor_id = ? and visited_id = ? and post_id = ? and action = ? ', current_member.id,
