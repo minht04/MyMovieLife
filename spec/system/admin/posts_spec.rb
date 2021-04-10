@@ -62,12 +62,11 @@ RSpec.describe 'Admin::Postsコントローラーのテスト', type: :system do
     end
     context '削除処理のテスト' do
       it '投稿が正しく削除される' do
-        expect{ post.destroy }.to change{ Post.count }.by(-1)
+        expect { post.destroy }.to change { Post.count }.by(-1)
       end
       it 'コメントが正しく削除される' do
-        expect{ comment.destroy }.to change{ Comment.count }.by(-1)
+        expect { comment.destroy }.to change { Comment.count }.by(-1)
       end
     end
   end
-
 end

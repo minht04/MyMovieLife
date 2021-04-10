@@ -81,7 +81,7 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
       end
     end
   end
-  
+
   describe '投稿の削除(DELETE #destroy)' do
     context '投稿者がログインしている場合' do
       it 'リクエストが成功すること' do
@@ -91,5 +91,4 @@ RSpec.describe 'Member::Postsリクエストのテスト', type: :request do
       end
     end
   end
-
 end

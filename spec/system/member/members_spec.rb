@@ -70,7 +70,7 @@ RSpec.describe 'Member::Membersコントローラーのテスト', type: :system
         expect(page).to have_button 'Update Profile'
       end
     end
-    
+
     context 'プロフィール更新処理のテスト' do
       before do
         @member_old_name = member.name
@@ -84,11 +84,10 @@ RSpec.describe 'Member::Membersコントローラーのテスト', type: :system
       end
       it 'introductionが正しく更新される' do
         expect(member.reload.introduction).not_to eq @member_old_introduction
-      end      
+      end
       it '更新後のリダイレクト先は自分のユーザー詳細画面である' do
         expect(current_path).to eq member_path(member)
       end
-    end  
+    end
   end
-
 end

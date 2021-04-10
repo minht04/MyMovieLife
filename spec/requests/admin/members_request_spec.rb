@@ -54,5 +54,4 @@ RSpec.describe 'Admin::Membersリクエストのテスト', type: :request do
       end
     end
   end
-
 end

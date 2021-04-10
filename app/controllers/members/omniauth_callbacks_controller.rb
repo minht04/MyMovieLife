@@ -35,9 +35,9 @@ class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def callback_for(provider)
     # 'request.env['omniauth.auth']'の中にgoogleアカウントから取得したメールアドレスや名前といったデータが含まれている
     @omniauth = request.env['omniauth.auth']
-    info = Member.find_oauth(@omniauth)      # 'find_oauth'はmember.rbで定義
-    @member = info[:member]    #  deviseのヘルパーを使うため@memberに代入  
-    if @member.persisted?      #  ユーザー登録済み（ログイン処理） 
+    info = Member.find_oauth(@omniauth) # 'find_oauth'はmember.rbで定義
+    @member = info[:member]    #  deviseのヘルパーを使うため@memberに代入
+    if @member.persisted?      #  ユーザー登録済み（ログイン処理）
       sign_in_and_redirect @member, event: :authentication
       set_flash_message(:notice, :success, kind: provider.to_s.capitalize) if is_navigational_format?
     else

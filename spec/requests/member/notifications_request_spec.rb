@@ -18,5 +18,4 @@ RSpec.describe 'Member::Notificationsリクエストのテスト', type: :reques
       end
     end
   end
-
 end

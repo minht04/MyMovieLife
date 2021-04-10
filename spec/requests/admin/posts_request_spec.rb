@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin::Postsリクエストのテスト' , type: :request do
+RSpec.describe 'Admin::Postsリクエストのテスト', type: :request do
   let(:admin) { create(:admin) }
   let(:member) { create(:member) }
   let(:post) { create(:post, member_id: member.id) }
@@ -48,5 +48,4 @@ RSpec.describe 'Admin::Postsリクエストのテスト' , type: :request do
       end
     end
   end
-
 end

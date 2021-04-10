@@ -53,5 +53,4 @@ RSpec.describe 'Admin::Membersコントローラーのテスト', type: :system 
       end
     end
   end
-
 end
