@@ -1,7 +1,7 @@
 #  ![logo](https://user-images.githubusercontent.com/76896952/112626502-a412a280-8e73-11eb-8c87-4da6262463b9.png)
 
 ## サイト概要
-観た映画の感想を投稿するサイトです。<br>
+観た映画の感想を投稿するSNSです。<br>
 人の感想に共感したものにはいいねやコメントをすることができます。<br>
 気になったユーザーをフォローすることができます。<br>
 <img width="1147" alt="image" src="https://user-images.githubusercontent.com/76896952/113505863-59cca800-957c-11eb-8d00-cfb1848320a0.png">
